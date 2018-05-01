@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>120</y>
+      <w>180</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Account
+--
+Benutzername
+Passwort
+User ID
+Benachrichtigungen
+Anzahl Käufe
+Anzahl Verkäufe
+
+--
+logout()
+Profil bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>120</y>
+      <w>200</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Benutzer
+--
+Vorname
+Nachname
+Firma
+Adresse
+Telefonnummer
+E-Mail Adresse
+--
+Produkte suchen() 
+Profil bearbeiten() 
+Produkt anbieten()
+eigenes Angebot löschen()
+eigenes Angebot bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>520</y>
+      <w>180</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Postfach
+--
+
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>510</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Administrator
+--
+
+--
+Angebot entfernen
+Account sperren
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>120</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Einkaufswagen
+--
+Anzahl der Produkte
+--
+leeren()
+Produkt hinzufügen()
+Produkt entfernen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>330</y>
+      <w>30</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>570</y>
+      <w>180</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Bankkonto
+--
+Guthaben
+IBAN
+BIC
+Bankname
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>310</y>
+      <w>30</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>180</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>140</y>
+      <w>210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>430</y>
+      <w>180</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Katalog
+--
+Anzahl der Produkte
+
+--
+Produkt hinzufügen()
+Produkt entfernen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>240</y>
+      <w>180</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0,1
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;450.0;160.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>120</y>
+      <w>180</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Produkt
+--
+Produkt-ID
+Bezeichnung
+Beschreibung
+Preis
+Produktkategorie
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1220</x>
+      <y>320</y>
+      <w>50</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>340</y>
+      <w>180</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Bestellung
+--
+Versandkosten
+Bestellnummer
+Bestelldatum
+--
+aufgeben()
+stornieren()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>180</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=*</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>190</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=2..*</panel_attributes>
+    <additional_attributes>190.0;160.0;140.0;160.0;140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>210</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>50</y>
+      <w>740</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+bietet an &gt;</panel_attributes>
+    <additional_attributes>720.0;70.0;720.0;20.0;10.0;20.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>
