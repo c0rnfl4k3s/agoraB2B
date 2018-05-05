@@ -11,55 +11,53 @@
     </coordinates>
     <panel_attributes>Account
 --
-Benutzername
-Passwort
-User ID
-Anzahl Käufe
-Anzahl Verkäufe
-Rechnungen
++ benutzername: String
+- passwort: String
++ userID: int
++ anzahlRechnungen: int
 --
-logout()
-Profil bearbeiten()</panel_attributes>
++ logout(): void
++ profilBearbeiten(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>17</x>
+      <x>34</x>
       <y>119</y>
       <w>374</w>
       <h>374</h>
     </coordinates>
-    <panel_attributes>Benutzer
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Benutzer
 --
-Vorname
-Nachname
-Firma
-Adresse
-Telefonnummer
-E-Mail Adresse
++ vorname: String
++ nachname: String
++ firma: String
++ telefonnummer: String
++ emailAdresse: String
 --
-Produkte suchen() 
-Profil bearbeiten()
-Account löschen()</panel_attributes>
++ produkteSuchen() 
++ profilBearbeiten()
++ accountLoeschen()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>629</x>
-      <y>799</y>
+      <y>629</y>
       <w>306</w>
       <h>238</h>
     </coordinates>
     <panel_attributes>Postfach
 --
 Benachrichtigungen
-Anzahl Ungelesene
++ anzahlUngelesene
 --
-neuen Chat erstellen()
-Chat öffnen()
-Chat schließen()</panel_attributes>
++ addChat()
++ openChat()
++ closeChat()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,14 +65,14 @@ Chat schließen()</panel_attributes>
     <coordinates>
       <x>51</x>
       <y>595</y>
-      <w>306</w>
+      <w>357</w>
       <h>119</h>
     </coordinates>
-    <panel_attributes>Käufer
+    <panel_attributes>Kaeufer
 --
-
++ anzahlKaeufe: int
 --
-Bestellungen anzeigen()</panel_attributes>
+- bestellungenAnzeigen(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -82,22 +80,24 @@ Bestellungen anzeigen()</panel_attributes>
     <coordinates>
       <x>1241</x>
       <y>119</y>
-      <w>306</w>
-      <h>170</h>
+      <w>408</w>
+      <h>238</h>
     </coordinates>
     <panel_attributes>Einkaufswagen
 --
-Anzahl der Produkte
++ anzahlProdukte: int
++ mwst: double
 --
-leeren()
-Produkt hinzufügen()
-Produkt entfernen()</panel_attributes>
++ leeren(): boolean
++ addProduct(): boolean
++ removeProduct(): boolean
++ calculateTotalPrice(): double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
+      <x>204</x>
       <y>476</y>
       <w>51</w>
       <h>153</h>
@@ -108,17 +108,17 @@ Produkt entfernen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>884</y>
+      <x>1241</x>
+      <y>816</y>
       <w>306</w>
       <h>238</h>
     </coordinates>
     <panel_attributes>Bankkonto
 --
-Guthaben
-IBAN
-BIC
-Bankname
++ guthaben: double
++ iban: String
++ bic: String
++ bankName: String
 --
 </panel_attributes>
     <additional_attributes/>
@@ -129,25 +129,25 @@ Bankname
       <x>765</x>
       <y>442</y>
       <w>51</w>
-      <h>391</h>
+      <h>221</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>374</x>
+      <x>391</x>
       <y>221</y>
-      <w>289</w>
+      <w>272</w>
       <h>68</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -172,11 +172,10 @@ m2=1</panel_attributes>
     </coordinates>
     <panel_attributes>Katalog
 --
-Anzahl der Produkte
-
+anzahlProdukte: int
 --
-Produkt hinzufügen()
-Produkt entfernen()</panel_attributes>
+addProduct(): boolean
+removeProduct(): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -184,29 +183,29 @@ Produkt entfernen()</panel_attributes>
     <coordinates>
       <x>918</x>
       <y>323</y>
-      <w>306</w>
-      <h>816</h>
+      <w>357</w>
+      <h>629</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0,1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0;90.0;450.0;160.0;450.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;340.0;190.0;340.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1836</x>
       <y>119</y>
-      <w>306</w>
+      <w>476</w>
       <h>221</h>
     </coordinates>
     <panel_attributes>Produkt
 --
-Produkt-ID
-Bezeichnung
-Beschreibung
-Preis
-Produktkategorie
++ produktID: int
++ bezeichnung: String
++ beschreibung: String
++ preis: double
++ produktKategorie: Produktkategorie
 --</panel_attributes>
     <additional_attributes/>
   </element>
@@ -233,27 +232,28 @@ m2=*</panel_attributes>
     </coordinates>
     <panel_attributes>Bestellung
 --
-Versandkosten
-Bestellnummer
-Bestelldatum
++ versandKosten: double
++ bestellNummer: int
++ bestellDatum: DateTime
++ verkaufsGebuehr: double
 --
-aufgeben()
-stornieren()
++ aufgeben(): boolean
++ stornieren(): boolean
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1530</x>
+      <x>1632</x>
       <y>221</y>
-      <w>340</w>
+      <w>238</w>
       <h>68</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 m2=*</panel_attributes>
-    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -272,14 +272,14 @@ m2=2..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1445</x>
-      <y>272</y>
+      <y>340</y>
       <w>51</w>
-      <h>255</h>
+      <h>187</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -299,31 +299,30 @@ bietet an &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>629</x>
-      <y>1258</y>
+      <y>1071</y>
       <w>306</w>
       <h>221</h>
     </coordinates>
     <panel_attributes>Chat
 --
-Chat-ID
-Anzahl Nachrichten
-
++ chatID: int
++ anzahlNachrichten
 --
-Nachricht senden()</panel_attributes>
++ nachrichtSenden()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>765</x>
-      <y>1020</y>
+      <y>850</y>
       <w>68</w>
-      <h>272</h>
+      <h>255</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 m2=2</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -337,8 +336,8 @@ m2=2</panel_attributes>
 --
 
 --
-Angebot entfernen()
-Account sperren()
+- angebotEntfernen(): void
+- accountSperren(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -350,13 +349,13 @@ Account sperren()
       <w>306</w>
       <h>204</h>
     </coordinates>
-    <panel_attributes>Verkäufer
+    <panel_attributes>Verkaeufer
 --
-
++ anzahlVerkaeufe: int
 --
-Produkt anbieten()
-eigenes Angebot löschen()
-eigenes Angebot bearbeiten()
+- produktAnbieten()
+- angebotLoeschen()
+- angebotBearbeiten()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -381,5 +380,69 @@ eigenes Angebot bearbeiten()
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>357</x>
+      <y>1513</y>
+      <w>306</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Adresse
+--
++ strasse: String
++ hausnummer: String
++ plz: String
++ stradt: String
++ land: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>867</x>
+      <y>1513</y>
+      <w>306</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+AdressTyp
+--
+LieferAdresse
+RechnungsAdresse
+KontaktAdresse
+AbsendeAdresse
+RuecksendeAdresse
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>646</x>
+      <y>1632</y>
+      <w>255</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>391</x>
+      <y>374</y>
+      <w>170</w>
+      <h>1173</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=5
+m2=1..*</panel_attributes>
+    <additional_attributes>70.0;670.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
