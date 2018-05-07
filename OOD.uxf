@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>17</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>119</y>
-      <w>306</w>
-      <h>340</h>
+      <x>306</x>
+      <y>81</y>
+      <w>171</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Account
 --
-+ benutzername: String
++ name: String
 - passwort: String
 + userID: int
 + anzahlRechnungen: int
 --
-+ logout(): void
-+ profilBearbeiten(): void</panel_attributes>
++ logout()
++ profilBearbeiten(): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>34</x>
-      <y>119</y>
-      <w>374</w>
-      <h>374</h>
+      <x>0</x>
+      <y>81</y>
+      <w>198</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 Benutzer
@@ -45,14 +45,13 @@ Benutzer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>629</y>
-      <w>306</w>
-      <h>238</h>
+      <x>315</x>
+      <y>279</y>
+      <w>162</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Postfach
 --
-Benachrichtigungen
 + anzahlUngelesene
 --
 + addChat()
@@ -63,25 +62,25 @@ Benachrichtigungen
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>595</y>
-      <w>357</w>
-      <h>119</h>
+      <x>9</x>
+      <y>333</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Kaeufer
 --
 + anzahlKaeufe: int
 --
-- bestellungenAnzeigen(): void</panel_attributes>
+# bestellungenAnzeigen()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1241</x>
-      <y>119</y>
-      <w>408</w>
-      <h>238</h>
+      <x>639</x>
+      <y>81</y>
+      <w>216</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Einkaufswagen
 --
@@ -89,18 +88,18 @@ Benachrichtigungen
 + mwst: double
 --
 + leeren(): boolean
-+ addProduct(): boolean
-+ removeProduct(): boolean
-+ calculateTotalPrice(): double</panel_attributes>
++ addProduct(p: Produkt): boolean
++ removeProduct(p: Produkt): boolean
++ berechneGesamtpreis(): double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>476</y>
-      <w>51</w>
-      <h>153</h>
+      <x>90</x>
+      <y>270</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -108,54 +107,52 @@ Benachrichtigungen
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1241</x>
-      <y>816</y>
-      <w>306</w>
-      <h>238</h>
+      <x>639</x>
+      <y>450</y>
+      <w>162</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Bankkonto
 --
 + guthaben: double
 + iban: String
 + bic: String
-+ bankName: String
---
-</panel_attributes>
++ bankName: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>442</y>
-      <w>51</w>
-      <h>221</h>
+      <x>387</x>
+      <y>198</y>
+      <w>27</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>391</x>
-      <y>221</y>
-      <w>272</w>
-      <h>68</h>
+      <x>189</x>
+      <y>135</y>
+      <w>135</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>153</y>
-      <w>357</w>
-      <h>68</h>
+      <x>468</x>
+      <y>99</y>
+      <w>189</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -165,26 +162,26 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1836</x>
-      <y>646</y>
-      <w>306</w>
-      <h>221</h>
+      <x>918</x>
+      <y>288</y>
+      <w>225</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Katalog
 --
-anzahlProdukte: int
++ anzahlProdukte: int
 --
-addProduct(): boolean
-removeProduct(): boolean</panel_attributes>
++ addProduct(p: Produkt): boolean
++ removeProduct(p: Produkt): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>323</y>
-      <w>357</w>
-      <h>629</h>
+      <x>468</x>
+      <y>189</y>
+      <w>189</w>
+      <h>333</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0,1
@@ -194,10 +191,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1836</x>
-      <y>119</y>
-      <w>476</w>
-      <h>221</h>
+      <x>954</x>
+      <y>81</y>
+      <w>216</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Produkt
 --
@@ -205,36 +202,36 @@ m2=1..*</panel_attributes>
 + bezeichnung: String
 + beschreibung: String
 + preis: double
-+ produktKategorie: Produktkategorie
---</panel_attributes>
++ produktKategorie: ProduktKategorie
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1972</x>
-      <y>323</y>
-      <w>51</w>
-      <h>357</h>
+      <x>990</x>
+      <y>180</y>
+      <w>27</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1241</x>
-      <y>493</y>
-      <w>306</w>
-      <h>255</h>
+      <x>639</x>
+      <y>279</y>
+      <w>162</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>Bestellung
 --
 + versandKosten: double
 + bestellNummer: int
-+ bestellDatum: DateTime
++ bestellDatum: Date
 + verkaufsGebuehr: double
 --
 + aufgeben(): boolean
@@ -245,10 +242,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1632</x>
-      <y>221</y>
-      <w>238</w>
-      <h>68</h>
+      <x>846</x>
+      <y>135</y>
+      <w>126</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
@@ -258,10 +255,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>238</y>
-      <w>357</w>
-      <h>323</h>
+      <x>468</x>
+      <y>144</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -271,10 +268,10 @@ m2=2..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1445</x>
-      <y>340</y>
-      <w>51</w>
-      <h>187</h>
+      <x>747</x>
+      <y>198</y>
+      <w>27</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -284,10 +281,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>0</y>
-      <w>1258</w>
-      <h>153</h>
+      <x>387</x>
+      <y>18</y>
+      <w>666</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -298,15 +295,15 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>1071</y>
-      <w>306</w>
-      <h>221</h>
+      <x>315</x>
+      <y>450</y>
+      <w>162</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Chat
 --
 + chatID: int
-+ anzahlNachrichten
++ anzahlNachrichten: int
 --
 + nachrichtSenden()</panel_attributes>
     <additional_attributes/>
@@ -314,58 +311,59 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>850</y>
-      <w>68</w>
-      <h>255</h>
+      <x>387</x>
+      <y>360</y>
+      <w>36</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 m2=2</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>1139</y>
-      <w>306</w>
-      <h>204</h>
+      <x>9</x>
+      <y>621</y>
+      <w>216</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Administrator
 --
 
 --
-- angebotEntfernen(): void
-- accountSperren(): void
+# angeboteEntfernen(
+        produkte: ArrayList&lt;Produkt&gt; )
+# accountSperren(Account acc)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>816</y>
-      <w>306</w>
-      <h>204</h>
+      <x>9</x>
+      <y>450</y>
+      <w>162</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Verkaeufer
 --
 + anzahlVerkaeufe: int
 --
-- produktAnbieten()
-- angebotLoeschen()
-- angebotBearbeiten()
+# produktAnbieten()
+# angebotLoeschen()
+# angebotBearbeiten()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
-      <y>697</y>
-      <w>51</w>
-      <h>153</h>
+      <x>81</x>
+      <y>387</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -373,10 +371,10 @@ m2=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
-      <y>1003</y>
-      <w>51</w>
-      <h>170</h>
+      <x>81</x>
+      <y>549</y>
+      <w>27</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -384,13 +382,12 @@ m2=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>357</x>
-      <y>1513</y>
-      <w>306</w>
-      <h>221</h>
+      <x>306</x>
+      <y>621</y>
+      <w>162</w>
+      <h>108</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;abstract&gt;&gt;
-Adresse
+    <panel_attributes>Adresse
 --
 + strasse: String
 + hausnummer: String
@@ -403,10 +400,10 @@ Adresse
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>867</x>
-      <y>1513</y>
-      <w>306</w>
-      <h>221</h>
+      <x>540</x>
+      <y>621</y>
+      <w>162</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 AdressTyp
@@ -422,27 +419,45 @@ RuecksendeAdresse
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>646</x>
-      <y>1632</y>
-      <w>255</w>
-      <h>68</h>
+      <x>459</x>
+      <y>684</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>391</x>
-      <y>374</y>
-      <w>170</w>
-      <h>1173</h>
+      <x>189</x>
+      <y>216</y>
+      <w>135</w>
+      <h>486</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=5
 m2=1..*</panel_attributes>
-    <additional_attributes>70.0;670.0;70.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>130.0;510.0;70.0;510.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>954</x>
+      <y>414</y>
+      <w>162</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ProduktKategorie
+--
+Bueromaterial
+Elektronik
+RHB
+Software
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
