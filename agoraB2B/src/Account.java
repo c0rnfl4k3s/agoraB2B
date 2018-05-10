@@ -13,6 +13,8 @@ public class Account {
     public Einkaufswagen cart;
     public ArrayList<Produkt> angeboteneProdukte;
 
+    public Account
+
     public void logout(){
 
     }
