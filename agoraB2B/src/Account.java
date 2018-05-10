@@ -23,7 +23,6 @@ public class Account {
         if (bankkonto != this.bankkonto){
             return true;}
         else
-
         {return false;}
     }
 
