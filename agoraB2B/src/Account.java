@@ -20,7 +20,10 @@ public class Account {
     }
 
     public boolean profilBearbeiten() {
-        return false;
+        if (bankkonto != this.bankkonto){
+            return true;}
+        else
+        {return false;}
     }
 
 }
