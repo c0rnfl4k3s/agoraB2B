@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>17</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>119</y>
-      <w>306</w>
-      <h>340</h>
+      <x>4039</x>
+      <y>112</y>
+      <w>126</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Account
 --
@@ -25,10 +25,10 @@ Profil bearbeiten()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>17</x>
-      <y>119</y>
-      <w>374</w>
-      <h>374</h>
+      <x>3787</x>
+      <y>112</y>
+      <w>154</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>Benutzer
 --
@@ -47,10 +47,10 @@ Account löschen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>799</y>
-      <w>306</w>
-      <h>238</h>
+      <x>4039</x>
+      <y>392</y>
+      <w>126</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Postfach
 --
@@ -65,10 +65,10 @@ Chat schließen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>595</y>
-      <w>306</w>
-      <h>119</h>
+      <x>3801</x>
+      <y>308</y>
+      <w>126</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Käufer
 --
@@ -80,10 +80,10 @@ Bestellungen anzeigen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1241</x>
-      <y>119</y>
-      <w>306</w>
-      <h>170</h>
+      <x>4291</x>
+      <y>112</y>
+      <w>126</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Einkaufswagen
 --
@@ -97,10 +97,10 @@ Produkt entfernen()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
-      <y>476</y>
-      <w>51</w>
-      <h>153</h>
+      <x>3857</x>
+      <y>259</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -108,10 +108,10 @@ Produkt entfernen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>884</y>
-      <w>306</w>
-      <h>238</h>
+      <x>4270</x>
+      <y>427</y>
+      <w>126</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Bankkonto
 --
@@ -126,10 +126,10 @@ Bankname
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>442</y>
-      <w>51</w>
-      <h>391</h>
+      <x>4095</x>
+      <y>245</y>
+      <w>21</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -139,10 +139,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>374</x>
-      <y>221</y>
-      <w>289</w>
-      <h>68</h>
+      <x>3934</x>
+      <y>154</y>
+      <w>119</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -152,10 +152,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>153</y>
-      <w>357</w>
-      <h>68</h>
+      <x>4158</x>
+      <y>126</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -165,10 +165,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1836</x>
-      <y>646</y>
-      <w>306</w>
-      <h>221</h>
+      <x>4536</x>
+      <y>329</y>
+      <w>126</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Katalog
 --
@@ -182,10 +182,10 @@ Produkt entfernen()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>323</y>
-      <w>306</w>
-      <h>816</h>
+      <x>4158</x>
+      <y>196</y>
+      <w>126</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0,1
@@ -195,10 +195,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1836</x>
-      <y>119</y>
-      <w>306</w>
-      <h>221</h>
+      <x>4536</x>
+      <y>112</y>
+      <w>126</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Produkt
 --
@@ -213,10 +213,10 @@ Produktkategorie
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1972</x>
-      <y>323</y>
-      <w>51</w>
-      <h>357</h>
+      <x>4592</x>
+      <y>196</y>
+      <w>21</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -226,10 +226,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1241</x>
-      <y>493</y>
-      <w>306</w>
-      <h>255</h>
+      <x>4291</x>
+      <y>266</y>
+      <w>126</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Bestellung
 --
@@ -245,23 +245,23 @@ stornieren()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1530</x>
-      <y>221</y>
-      <w>340</w>
-      <h>68</h>
+      <x>0</x>
+      <y>154</y>
+      <w>1925</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 m2=*</panel_attributes>
-    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>2730.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>238</y>
-      <w>357</w>
-      <h>323</h>
+      <x>4158</x>
+      <y>161</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -271,10 +271,10 @@ m2=2..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1445</x>
-      <y>272</y>
-      <w>51</w>
-      <h>255</h>
+      <x>4375</x>
+      <y>175</y>
+      <w>21</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -284,10 +284,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>0</y>
-      <w>1258</w>
-      <h>153</h>
+      <x>4095</x>
+      <y>63</y>
+      <w>518</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -298,10 +298,10 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>629</x>
-      <y>1258</y>
-      <w>306</w>
-      <h>221</h>
+      <x>4039</x>
+      <y>581</y>
+      <w>126</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Chat
 --
@@ -315,10 +315,10 @@ Nachricht senden()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>1020</y>
-      <w>68</w>
-      <h>272</h>
+      <x>4095</x>
+      <y>483</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
@@ -328,10 +328,10 @@ m2=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>1139</y>
-      <w>306</w>
-      <h>204</h>
+      <x>3801</x>
+      <y>532</y>
+      <w>126</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Administrator
 --
@@ -345,10 +345,10 @@ Account sperren()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>51</x>
-      <y>816</y>
-      <w>306</w>
-      <h>204</h>
+      <x>3801</x>
+      <y>399</y>
+      <w>126</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Verkäufer
 --
@@ -363,10 +363,10 @@ eigenes Angebot bearbeiten()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
-      <y>697</y>
-      <w>51</w>
-      <h>153</h>
+      <x>3857</x>
+      <y>350</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -374,12 +374,25 @@ eigenes Angebot bearbeiten()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>187</x>
-      <y>1003</y>
-      <w>51</w>
-      <h>170</h>
+      <x>3857</x>
+      <y>476</y>
+      <w>21</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>3710</x>
+      <y>14</y>
+      <w>1001</w>
+      <h>693</h>
+    </coordinates>
+    <panel_attributes>cd agoraB2B_ooa
+--
+bg=white</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
