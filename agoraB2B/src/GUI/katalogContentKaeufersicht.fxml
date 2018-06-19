@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+  <columns>
+    <TableColumn fx:id="bezeichnungColumn" prefWidth="125.0" text="Bezeichnung" />
+    <TableColumn fx:id="kategorieColumn" prefWidth="121.0" text="Kategorie" />
+      <TableColumn fx:id="beschreibungColumn" prefWidth="180.0" text="Beschreibung" />
+      <TableColumn fx:id="anbieterColumn" prefWidth="93.0" text="Anbieter" />
+      <TableColumn fx:id="preisColumn" text="Preis" />
+  </columns>
+</TableView>

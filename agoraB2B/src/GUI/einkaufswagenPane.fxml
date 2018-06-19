@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="360.0" maxWidth="600.0" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EinkaufswagenPaneController">
+   <children>
+      <Pane prefHeight="37.0" prefWidth="600.0">
+         <children>
+            <Separator layoutY="36.0" prefHeight="0.0" prefWidth="600.0" />
+            <Label layoutX="14.0" layoutY="4.0" text="Einkaufswagen">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="bestellungAufgebenButton" defaultButton="true" layoutX="455.0" layoutY="4.0" mnemonicParsing="false" onAction="#bestellungAufgeben" prefHeight="30.0" prefWidth="141.0" text="Bestellung aufgeben" />
+         </children></Pane>
+      <Label layoutX="470.0" layoutY="328.0" prefHeight="30.0" prefWidth="107.0" text="Summe: 0,00 €">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutY="327.0" prefHeight="0.0" prefWidth="600.0" />
+      <TableView fx:id="table" layoutY="37.0" prefHeight="290.0" prefWidth="600.0">
+        <columns>
+          <TableColumn editable = "false" prefWidth="456.0" text="C1" />
+          <TableColumn editable="false" minWidth="0.0" prefWidth="68.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
