@@ -13,12 +13,12 @@ public class AccountDAO implements InterfaceDAO {
 
     public AccountDAO()
     {
-        JDBCClient meineSitzung = new JDBCClient();
-        conn = meineSitzung.connect();
+        ConnectionManager meineSitzung = new ConnectionManager();
+        conn = meineSitzung.connectDB("db4free.net", "swttest", "swttest", "swtadmin");
 
         if(conn!=null)///Verbindungsaufbau erfolgreich
         {
-
+            System.out.println("Verbindung hergestellt");
         }
         else
         {

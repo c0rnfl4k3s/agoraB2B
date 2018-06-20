@@ -99,7 +99,7 @@ public class RegisterWindowController implements Initializable {
         neuerAccountDTO.setBenutzer(neuerBenutzer);
         neuesBankkonto.setAccountDTO(neuerAccountDTO);
 
-
+        System.out.println(neuerBenutzer);
 
         // TODO: 'neuerAccountDTO' in die Datenbank hinzufügen
         try {
@@ -107,6 +107,8 @@ public class RegisterWindowController implements Initializable {
            InterfaceDAO neuerAccountDAO = new AccountDAO();
             neuerAccountDAO.accountErstellen(neuerAccountDTO);
 
+
+            System.out.println(neuerBenutzer);
 
         } catch (Exception e) {
             e.printStackTrace();
