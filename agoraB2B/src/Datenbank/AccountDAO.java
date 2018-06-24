@@ -3,7 +3,7 @@ package Datenbank;
 import Accountsystem.*;
 
 import java.sql.*;
-
+import java.util.ArrayList;
 
 
 public class AccountDAO implements AccountInterface {
@@ -55,6 +55,9 @@ public class AccountDAO implements AccountInterface {
             if(rs.getString("name").contains("admin")) { // Wenn der String "admin" im Usernamen enthalten ist, wird der neue User als AdminAdapter registriert. (Zum testen der Adminfunktionen)
                 ben = new AdminAdapter(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
                         rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
+            } else if (rs.getString("name").contains("verkaeufer")) {
+                ben = new Verkaeufer(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
+                        rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
             } else {
                 ben = new Kaeufer(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
                         rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
@@ -67,6 +70,7 @@ public class AccountDAO implements AccountInterface {
         return result;
     }
 
+    @Override
     public boolean checkNames(String username) throws SQLException { // return true, wenn username noch nicht vergeben.
 
         if(conn != null) {
@@ -79,13 +83,44 @@ public class AccountDAO implements AccountInterface {
                     return false;
                 }
             }
-
         }
-
         return true;
     }
 
-    //@Override
+    @Override
+    public ArrayList<AccountDTO> readAccounts() throws SQLException{
+        ArrayList<AccountDTO> ret = new ArrayList<>();
+        if(conn != null) {
+
+            Statement st = conn.createStatement();
+            Statement st1 = conn.createStatement();
+            String sql = "SELECT * FROM Account";
+            String sql1 = "SELECT * FROM Benutzer";
+            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs1 = st1.executeQuery(sql1);
+            while(rs.next() && rs1.next()) {
+                Benutzer b;
+                if(rs.getString("name").contains("admin")) { // Wenn der String "admin" im Usernamen enthalten ist, wird der neue User als AdminAdapter registriert. (Zum testen der Adminfunktionen)
+                    b = new AdminAdapter(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
+                            rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
+                } else if (rs.getString("name").contains("verkaeufer")) {
+                    b = new Verkaeufer(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
+                            rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
+                } else {
+                    b = new Kaeufer(rs1.getString("vorname"), rs1.getString("nachname"), rs1.getString("firma"), rs1.getString("telefonnummer"),
+                            rs1.getString("emailAdresse"), rs1.getString("strasse"), rs1.getString("hausnummer"), rs1.getString("plz"), rs1.getString("stadt"), rs1.getString("land"));
+                }
+                AccountDTO a = new AccountDTO(rs.getString("name"), rs.getString("passwort"), rs.getString("iban"), rs.getString("bic"), rs.getString("bankname"));
+                b.setAccountDTO(a);
+                a.setBenutzer(b);
+                a.setAccountID(rs.getInt("accountID"));
+                ret.add(a);
+            }
+        }
+        return ret;
+    }
+
+    @Override
     public void accountErstellen(AccountDTO neuerAccountDTO) {
     //    conn = getInstance(); // getCLass oder getInstance
 
@@ -151,24 +186,6 @@ public class AccountDAO implements AccountInterface {
                 preparedStatement1.setInt(11, accountID);
                 preparedStatement1.executeUpdate();
 
-                //Table Bankkonto
-//                preparedStatement2.setString(1, iban);
-//                preparedStatement2.setString(2, bic);
-//                preparedStatement2.setString(3, bankName);
-//                preparedStatement2.setInt(4, userID);
-//
-//                //Table Adresse
-//                preparedStatement3.setString(1, strasse);
-//                preparedStatement3.setString(2, hausnummer);
-//                preparedStatement3.setString(3, plz);
-//                preparedStatement3.setString(4, stadt);
-//                preparedStatement3.setString(5, land);
-//                preparedStatement3.setInt(6, userID);
-
-
-//                preparedStatement2.executeUpdate();
-//                preparedStatement3.executeUpdate();
-
             } catch (SQLException e){
                 e.printStackTrace();
             }
@@ -176,7 +193,7 @@ public class AccountDAO implements AccountInterface {
     }
 
     @Override
-    public void accountUpdaten(AccountDTO acc) { //TODO
+    public void accountUpdaten(AccountDTO acc) {
 
         if(conn != null) {
             try {
@@ -224,7 +241,6 @@ public class AccountDAO implements AccountInterface {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 

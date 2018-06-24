@@ -16,7 +16,7 @@ public class JUnitLogicTest {
     @Test
     public void createProdukt() {
 
-        ProduktDTO testProdukt = new ProduktDTO(0,"","",0.0,ProduktKategorie.BUEROMATERIAL, new AccountDTO("","","","",""),1);
+        ProduktDTO testProdukt = new ProduktDTO("","", 0.0, ProduktKategorie.BUEROMATERIAL, new AccountDTO("","","","",""));
         assertNotNull(testProdukt);
     }
 

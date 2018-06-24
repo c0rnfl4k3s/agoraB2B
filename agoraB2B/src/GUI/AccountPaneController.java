@@ -62,7 +62,7 @@ public class AccountPaneController implements Initializable {
         return activeAccountDTO;
     }
 
-    public void setActiveAccountDTO(AccountDTO activeAccountDTO) {
+    public void setActiveAccountDTO(AccountDTO activeAccountDTO) { // setzt auch alle Textfelder
 
 //        if(this.activeAccountDTO == null || !activeAccountDTO.equals(this.activeAccountDTO)) {
             this.activeAccountDTO = activeAccountDTO;

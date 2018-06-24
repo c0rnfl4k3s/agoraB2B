@@ -29,17 +29,19 @@ public class MainPaneController implements Initializable {
 //        AdminAdapter testAdmin = new AdminAdapter("Test", "AccountDTO", "Test", "0123456789", "testemail@test.de" ,
 //                new Adresse("Teststreet", "123", "45279", "Essen", "DE", AdressTyp.KontaktAdresse));
 //        activeAccountDTO = new AccountDTO();
-        try {
-            produktKatalogAnzeigen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+////            produktKatalogAnzeigen();
+//            accountAnzeigen();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML
     public void produktKatalogAnzeigen() throws IOException {
 //        Parent content = FXMLLoader.load(getClass().getResource("katalogPane.fxml"));
         loader = new FXMLLoader();
+        System.out.println(activeAccountDTO); // IST NULL!
         loader.setController(new KatalogPaneController(activeAccountDTO)); // Muss manuell gesetzt werden, um activeAccountDTO zu übergeben. Controller ist in der FXML Datei bewusst nicht gesetzt.
         loader.setLocation(getClass().getResource("katalogPane.fxml"));
         Parent content = loader.load();

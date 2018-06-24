@@ -1,7 +1,11 @@
 package Datenbank;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import Accountsystem.AccountDTO;
+import Accountsystem.ProduktDTO;
+import Accountsystem.ProduktKategorie;
+
+import java.sql.*;
+import java.util.ArrayList;
 
 public class ProduktDAO implements ProduktInterface {
 
@@ -22,17 +26,70 @@ public class ProduktDAO implements ProduktInterface {
     }
 
     @Override
-    public void produktAnbieten() throws SQLException {
+    public void produktAnbieten(ProduktDTO neuesProdukt) throws SQLException {
 
+        if(conn != null) {
+            try {
+                String sql = "INSERT INTO Produkte(bezeichnung, beschreibung, preis, produktKategorie, accountID) " + "VALUES(?,?,?,?,?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, neuesProdukt.getBezeichnung());
+                ps.setString(2, neuesProdukt.getBeschreibung());
+                ps.setDouble(3, neuesProdukt.getPreis());
+                ps.setString(4, neuesProdukt.getProduktKategorie().toString());
+                ps.setInt(5, neuesProdukt.getAnbietenderAccountDTO().getAccountID());
+                ps.executeUpdate(sql);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public void produktBearbeiten() throws SQLException {
+    public void produktBearbeiten(ProduktDTO produkt) throws SQLException {
 
+        if(conn != null) {
+            try {
+                Statement st = conn.createStatement();
+                String sql = "UPDATE Produkte SET" + " bezeichnung = '" + produkt.getBezeichnung() +
+                        "', beschreibung = '" + produkt.getBeschreibung() +
+                        "', preis = '" + produkt.getPreis() +
+                        "', produktKategorie = '" + produkt.getProduktKategorie() +
+                        "' WHERE produktID = " + produkt.getProduktID();
+                st.executeUpdate(sql);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public void produktEntfernen() throws SQLException {
+    public void produktEntfernen(int produktID) throws SQLException {
 
+        if(conn != null) {
+            try {
+                Statement st = conn.createStatement();
+                String sql = "DELETE FROM Produkte WHERE produktID = " + produktID;
+                st.executeUpdate(sql);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public ArrayList<ProduktDTO> readProducts() throws SQLException {
+        ArrayList<ProduktDTO> ret = new ArrayList<>();
+        if(conn != null) {
+
+            Statement st = conn.createStatement();
+            String sql = "SELECT * FROM Produkte";
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()) {
+                ProduktDTO p = new ProduktDTO(rs.getString("bezeichnung"), rs.getString("beschreibung"), rs.getDouble("preis")
+                        , ProduktKategorie.valueOf(rs.getString("produktKategorie")), new AccountDTO("","","","",""));
+                ret.add(p);
+            }
+        }
+        return ret;
     }
 }

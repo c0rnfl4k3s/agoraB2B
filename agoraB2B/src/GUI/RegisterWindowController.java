@@ -93,6 +93,10 @@ public class RegisterWindowController implements Initializable {
             neuerBenutzer = new AdminAdapter(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
                     telTextfield.getText().trim(), emailTextfield.getText().trim(), strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
                     stadtTextfield.getText().trim(), landTextfield.getText().trim());
+        } else if(userTextfield.getText().contains("verkaeufer")) { // Wenn der String "admin" im Usernamen enthalten ist, wird der neue User als AdminAdapter registriert. (Zum testen der Adminfunktionen)
+            neuerBenutzer = new Verkaeufer(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
+                    telTextfield.getText().trim(), emailTextfield.getText().trim(), strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
+                    stadtTextfield.getText().trim(), landTextfield.getText().trim());
         } else {
             neuerBenutzer = new Kaeufer(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
                     telTextfield.getText().trim(), emailTextfield.getText().trim(), strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
@@ -137,7 +141,7 @@ public class RegisterWindowController implements Initializable {
         return true;
     }
 
-    public boolean checkBenutzername(AccountDAO neuerAccountDAO) { // TODO: Soll in die Datenbank gucken und nicht ins Verzeichnis
+    public boolean checkBenutzername(AccountDAO neuerAccountDAO) {
 
         try {
             return neuerAccountDAO.checkNames(userTextfield.getText().trim());

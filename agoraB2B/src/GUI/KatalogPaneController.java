@@ -34,6 +34,7 @@ public class KatalogPaneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        System.out.println(activeAccountDTO);
         if(activeAccountDTO.getBenutzer() instanceof AdminAdapter) {
             adminsichtAnzeigen();
         } else if (activeAccountDTO.getBenutzer() instanceof Verkaeufer) {
@@ -51,7 +52,7 @@ public class KatalogPaneController implements Initializable {
             content = loader.load();
             ((KatalogContentAdminsichtController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
             ((KatalogContentAdminsichtController)loader.getController()).setMotherPaneController(this);
-            katalogContent.getChildren().setAll(content);
+            katalogContent = (Pane)content;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,7 +65,7 @@ public class KatalogPaneController implements Initializable {
             content = loader.load();
             ((KatalogContentVerkaeufersichtController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
             ((KatalogContentVerkaeufersichtController)loader.getController()).setMotherPaneController(this);
-            katalogContent.getChildren().setAll(content);
+            katalogContent = (Pane)content;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +78,7 @@ public class KatalogPaneController implements Initializable {
             content = loader.load();
             ((KatalogContentKaeufersichtController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
             ((KatalogContentKaeufersichtController)loader.getController()).setMotherPaneController(this);
-            katalogContent.getChildren().setAll(content);
+            katalogContent = (Pane)content;
         } catch (IOException e) {
             e.printStackTrace();
         }

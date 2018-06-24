@@ -12,10 +12,10 @@ public class ProduktDTO implements Serializable {
 //    private Einkaufswagen einkaufswagen;
 //    private Katalog katalog;
     private AccountDTO anbietenderAccountDTO;
-    private int bestand;
+//    private int bestand;
 
-    public ProduktDTO(int produktID, String bezeichnung, String beschreibung, double preis, ProduktKategorie produktKategorie, AccountDTO anbietenderAccountDTO, int bestand) {
-        this.produktID = produktID;
+    public ProduktDTO(String bezeichnung, String beschreibung, double preis, ProduktKategorie produktKategorie, AccountDTO anbietenderAccountDTO) {
+//        this.produktID = produktID;
         this.bezeichnung = bezeichnung;
         this.beschreibung = beschreibung;
         this.preis = preis;
@@ -23,7 +23,7 @@ public class ProduktDTO implements Serializable {
 //        this.einkaufswagen = einkaufswagen;
 //        this.katalog = katalog;
         this.anbietenderAccountDTO = anbietenderAccountDTO;
-        this.bestand = bestand;
+//        this.bestand = bestand;
     }
 
     public int getProduktID() {
@@ -90,11 +90,11 @@ public class ProduktDTO implements Serializable {
         this.anbietenderAccountDTO = anbietenderAccountDTO;
     }
 
-    public int getBestand() {
-        return bestand;
-    }
-
-    public void setBestand(int bestand) {
-        this.bestand = bestand;
-    }
+//    public int getBestand() {
+//        return bestand;
+//    }
+//
+//    public void setBestand(int bestand) {
+//        this.bestand = bestand;
+//    }
 }

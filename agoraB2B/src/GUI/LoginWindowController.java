@@ -46,10 +46,6 @@ public class LoginWindowController implements Initializable {
         AccountDTO activeAccountDTO = null;
         // Login Daten checken und AccountDTO-Objekt auslesen:
         try {
-
-            // TODO: activeAccountDTO mit Datenbankeinträgen initialisieren! (möglichst ohne Konstruktoraufruf wegen Counter)
-
-
             AccountDAO activeAccountDAO = new AccountDAO();
             activeAccountDTO = activeAccountDAO.accountAbrufen(userTextfield.getText());
             if(!activeAccountDTO.getPasswort().equals(pwTextfield.getText())) {
@@ -66,10 +62,16 @@ public class LoginWindowController implements Initializable {
 
 
         // Seite laden:
-        loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
-        loginPane.getChildren().setAll((Parent)loader.load()); // Immer erst load aufrufen, bevor man auf den Controller zugreift !!
+        loader = new FXMLLoader();
+
+        //TODO: Nullpointerexception bei erstmaligem laden
+
+        loader.setLocation(getClass().getResource("mainPane.fxml"));
+        Parent mainPane = loader.load(); // Immer erst load aufrufen, bevor man auf den Controller zugreift !!
         ((MainPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
+        ((MainPaneController)loader.getController()).produktKatalogAnzeigen();
         loginPane.getScene().getWindow().setHeight(390+48);
         loginPane.getScene().getWindow().setWidth(600+16);
+        loginPane.getChildren().setAll(mainPane);
     }
 }
