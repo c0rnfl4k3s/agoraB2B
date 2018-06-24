@@ -1,29 +1,38 @@
 package Accountsystem;
 
+import Datenbank.DTO;
 import java.io.Serializable;
-import java.util.*;
 
-public class AccountDTO implements Serializable { // Als DTO Objekt benutzt
+public class AccountDTO extends DTO implements Serializable { // Als DTO Objekt benutzt
 
-    private static int anzahlAccounts = 0;
+//    private static int anzahlAccounts = 0;
     private Benutzer benutzer;
     private String name;
     private String passwort;
-    private int userID;
-    private int anzahlRechnungen;
-    private Postfach postfach;
-    private ArrayList<Bankkonto> bankkonten = new ArrayList<>(); // als Array-List, wenn die möglichkeit für mehrere da sein muss
-    private ArrayList<Bestellung> bestellungen;
-    private Einkaufswagen ekw;
-    private ArrayList<Produkt> angeboteneProdukte;
+    private int accountID;
+//    private int anzahlRechnungen;
+    private String bankname;
+    private String iban;
+    private String bic;
 
-    public AccountDTO(/*Benutzer nBenutzer,*/ String nName, String nPasswort, Bankkonto bankkonto){
-        anzahlAccounts++;
-        userID = anzahlAccounts;
+//    private int
+//    private Postfach postfach;
+//    private ArrayList<Bankkonto> bankkonten = new ArrayList<>(); // als Array-List, wenn die möglichkeit für mehrere da sein muss
+//    private ArrayList<Bestellung> bestellungen;
+//    private Einkaufswagen ekw;
+//    private ArrayList<ProduktDTO> angeboteneProdukte;
+
+    public AccountDTO(/*Benutzer nBenutzer,*/ String nName, String nPasswort, String nIban, String nBic, String nBankname){
+//        anzahlAccounts++;
+//        accountID = anzahlAccounts;
 //        benutzer = nBenutzer; // Circular dependency Issue
         name = nName;
         passwort = nPasswort;
-        bankkonten.add(bankkonto);
+        bankname = nBankname;
+        iban = nIban;
+        bic = nBic;
+
+//        bankkonten.add(bankkonto);
  //       ekw = new Einkaufswagen();
 //        Statement stat = conn.createStatement(); // JDBC einlesen
 //        stat.execute("INSERT INTO namen VALUES(3, 'max', '32')");
@@ -61,23 +70,23 @@ public class AccountDTO implements Serializable { // Als DTO Objekt benutzt
             case "firmaTextfield":
                 return benutzer.getFirma();
             case "ibanTextfield":
-                return bankkonten.get(0).getIban(); // Später berücksichtigen, dass mehrere Bankkonten angelegt werden können!
+                return getIban(); // Später berücksichtigen, dass mehrere Bankkonten angelegt werden können!
             case "bicTextfield":
-                return bankkonten.get(0).getBic();
+                return getBic();
             case "banknameTextfield":
-                return bankkonten.get(0).getBankName();
+                return getBankname();
 
                 // ACHTUNG: Später verschiedene Adresstypen berücksichtigen!
             case "strasseTextfield":
-                return benutzer.getKontaktAdresse().getStrasse();
+                return benutzer.getStrasse();
             case "hausnummerTextfield":
-                return benutzer.getKontaktAdresse().getHausnummer();
+                return benutzer.getHausnummer();
             case "stadtTextfield":
-                return benutzer.getKontaktAdresse().getStadt();
+                return benutzer.getStadt();
             case "plzTextfield":
-                return benutzer.getKontaktAdresse().getPlz();
+                return benutzer.getPlz();
             case "landTextfield":
-                return benutzer.getKontaktAdresse().getLand();
+                return benutzer.getLand();
             default:
                 return "ÜBERTRAGUNGSFEHLER";
         }
@@ -104,46 +113,46 @@ public class AccountDTO implements Serializable { // Als DTO Objekt benutzt
                 benutzer.setFirma(attributeData);
                 return true;
             case "ibanTextfield": // Später berücksichtigen, dass mehrere Bankkonten angelegt werden können!
-                bankkonten.get(0).setIban(attributeData);
+                setIban(attributeData);
                 return true;
             case "bicTextfield":
-                bankkonten.get(0).setBic(attributeData);
+                setBic(attributeData);
                 return true;
             case "banknameTextfield":
-                bankkonten.get(0).setBankName(attributeData);
+                setBankname(attributeData);
                 return true;
 
             // ACHTUNG: Später verschiedene Adresstypen berücksichtigen!
             case "strasseTextfield":
-                benutzer.getKontaktAdresse().setStrasse(attributeData);
+                benutzer.setStrasse(attributeData);
                 return true;
             case "hausnummerTextfield":
-                benutzer.getKontaktAdresse().setHausnummer(attributeData);
+                benutzer.setHausnummer(attributeData);
                 return true;
             case "stadtTextfield":
-                benutzer.getKontaktAdresse().setStadt(attributeData);
+                benutzer.setStadt(attributeData);
                 return true;
             case "plzTextfield":
-                benutzer.getKontaktAdresse().setPlz(attributeData);
+                benutzer.setPlz(attributeData);
                 return true;
             case "landTextfield":
-                benutzer.getKontaktAdresse().setLand(attributeData);
+                benutzer.setLand(attributeData);
                 return true;
             default:
                 return false;
         }
     }
 
-    public static int getAnzahlAccounts() {
-        return anzahlAccounts;
-    }
-
-    public static void setAnzahlAccounts(int anzahlAccounts) {
-        AccountDTO.anzahlAccounts = anzahlAccounts;
-    }
+//    public static int getAnzahlAccounts() {
+//        return anzahlAccounts;
+//    }
+//
+//    public static void setAnzahlAccounts(int anzahlAccounts) {
+//        AccountDTO.anzahlAccounts = anzahlAccounts;
+//    }
 
     public boolean isAdmin() {
-        return this.benutzer instanceof Admin;
+        return this.benutzer instanceof AdminAdapter;
     }
 
     public Benutzer getBenutzer() {
@@ -170,62 +179,86 @@ public class AccountDTO implements Serializable { // Als DTO Objekt benutzt
         this.passwort = passwort;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getAccountID() {
+        return accountID;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
+//
+//    public int getAnzahlRechnungen() {
+//        return anzahlRechnungen;
+//    }
+//
+//    public void setAnzahlRechnungen(int anzahlRechnungen) {
+//        this.anzahlRechnungen = anzahlRechnungen;
+//    }
+
+    public String getBankname() {
+        return bankname;
     }
 
-    public int getAnzahlRechnungen() {
-        return anzahlRechnungen;
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
     }
 
-    public void setAnzahlRechnungen(int anzahlRechnungen) {
-        this.anzahlRechnungen = anzahlRechnungen;
+    public String getIban() {
+        return iban;
     }
 
-    public Postfach getPostfach() {
-        return postfach;
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 
-    public void setPostfach(Postfach postfach) {
-        this.postfach = postfach;
+    public String getBic() {
+        return bic;
     }
 
-    public ArrayList<Bankkonto> getBankkonten() {
-        return bankkonten;
+    public void setBic(String bic) {
+        this.bic = bic;
     }
+
+    //    public Postfach getPostfach() {
+//        return postfach;
+//    }
+//
+//    public void setPostfach(Postfach postfach) {
+//        this.postfach = postfach;
+//    }
+//
+//    public ArrayList<Bankkonto> getBankkonten() {
+//        return bankkonten;
+//    }
 
 //    public void addBankkonto(Bankkonto bankkonto) {
 //        this.bankkonten.add(bankkonto);
 //    }
 
-    public ArrayList<Bestellung> getBestellungen() {
-        return bestellungen;
-    }
-
-    public void setBestellungen(ArrayList<Bestellung> bestellungen) {
-        this.bestellungen = bestellungen;
-    }
-
-    public Einkaufswagen getEkw() {
-        return ekw;
-    }
-
-    public void setEkw(Einkaufswagen ekw) {
-        this.ekw = ekw;
-    }
-
-    public ArrayList<Produkt> getAngeboteneProdukte() {
-        return angeboteneProdukte;
-    }
-
-    public void setAngeboteneProdukte(ArrayList<Produkt> angeboteneProdukte) {
-        if(!(benutzer instanceof Verkaeufer)) { // später: Exception schmeissen
-            return;
-        }
-        this.angeboteneProdukte = angeboteneProdukte;
-    }
+//    public ArrayList<Bestellung> getBestellungen() {
+//        return bestellungen;
+//    }
+//
+//    public void setBestellungen(ArrayList<Bestellung> bestellungen) {
+//        this.bestellungen = bestellungen;
+//    }
+//
+//    public Einkaufswagen getEkw() {
+//        return ekw;
+//    }
+//
+//    public void setEkw(Einkaufswagen ekw) {
+//        this.ekw = ekw;
+//    }
+//
+//    public ArrayList<ProduktDTO> getAngeboteneProdukte() {
+//        return angeboteneProdukte;
+//    }
+//
+//    public void setAngeboteneProdukte(ArrayList<ProduktDTO> angeboteneProdukte) {
+//        if(!(benutzer instanceof Verkaeufer)) { // später: Exception schmeissen
+//            return;
+//        }
+//        this.angeboteneProdukte = angeboteneProdukte;
+//    }
 }

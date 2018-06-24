@@ -1,6 +1,7 @@
 package GUI;
 
 import Accountsystem.AccountDTO;
+import Datenbank.AccountDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,9 +48,10 @@ public class LoginWindowController implements Initializable {
         try {
 
             // TODO: activeAccountDTO mit Datenbankeinträgen initialisieren! (möglichst ohne Konstruktoraufruf wegen Counter)
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(userTextfield.getText() /*+ "_" + (AccountDTO.getAnzahlAccounts())*/ + ".ser"));
-            activeAccountDTO = (AccountDTO) ois.readObject(); // Konstruktor wird nicht aufgerufen, dadurch wird "static anzahlAccounts" nicht inkrementiert
-            ois.close();
+
+
+            AccountDAO activeAccountDAO = new AccountDAO();
+            activeAccountDTO = activeAccountDAO.accountAbrufen(userTextfield.getText());
             if(!activeAccountDTO.getPasswort().equals(pwTextfield.getText())) {
                 throw new IllegalArgumentException();
             }

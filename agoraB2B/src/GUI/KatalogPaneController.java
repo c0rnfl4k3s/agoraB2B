@@ -1,7 +1,7 @@
 package GUI;
 
 import Accountsystem.AccountDTO;
-import Accountsystem.Admin;
+import Accountsystem.AdminAdapter;
 import Accountsystem.Verkaeufer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,10 +26,15 @@ public class KatalogPaneController implements Initializable {
     @FXML
     private Pane katalogContent;
 
+
+    public KatalogPaneController(AccountDTO activeAccountDTO) { // Um die Variable setzen zuu können, bevor die initialize-Methode aufgerufen wird (Der Controller ist in der FXML nicht definiert, sondern manuell!)
+        setActiveAccountDTO(activeAccountDTO);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if(activeAccountDTO.getBenutzer() instanceof Admin) {
+        if(activeAccountDTO.getBenutzer() instanceof AdminAdapter) {
             adminsichtAnzeigen();
         } else if (activeAccountDTO.getBenutzer() instanceof Verkaeufer) {
             verkaeufersichtAnzeigen();

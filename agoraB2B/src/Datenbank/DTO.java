@@ -1,4 +1,7 @@
 package Datenbank;
 
-public abstract class DTO {
+import javafx.beans.Observable;
+
+public abstract class DTO extends java.util.Observable {
+
 }

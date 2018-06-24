@@ -1,6 +1,7 @@
 package GUI;
 
 import Accountsystem.AccountDTO;
+import Datenbank.AccountDAO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -29,7 +30,7 @@ public class AccountPaneController implements Initializable {
     public TextField vornameTextfield, userTextfield, emailTextfield, telTextfield, nachnameTextfield, firmaTextfield, ibanTextfield,
             bicTextfield, banknameTextfield, strasseTextfield, hausnummerTextfield, stadtTextfield, plzTextfield, landTextfield;
     @FXML
-    ComboBox adressTypComboBox; // Funktioniert noch nicht! // TODO
+    ComboBox adressTypComboBox; // Funktioniert noch nicht!
     @FXML
     Accordion accordion;
     @FXML
@@ -83,8 +84,8 @@ public class AccountPaneController implements Initializable {
         Optional<ButtonType> result = deleteAccAlert.showAndWait();
         if (result.get() == ButtonType.OK){
             // Benutzer hat OK geklickt
-            File targetFile = new File(System.getProperty("user.dir") + File.separator + activeAccountDTO.getName() + ".ser");
-            targetFile.delete();
+            AccountDAO accountDAO = new AccountDAO();
+            accountDAO.accountLoeschen(activeAccountDTO.getAccountID());
             try {
                 motherPaneController.logout();
             } catch (IOException e) {
@@ -121,19 +122,13 @@ public class AccountPaneController implements Initializable {
             for(Node node1: ((AnchorPane)contentNode.getValue()).getChildren()) { // Alle Inhalte der TitledPane nacheinander abrufen
                 if(node1 instanceof TextField) {
 //                   updatedAttributes.add(((TextField) node1));
-                    activeAccountDTO.setAttribute(((TextField) node1).getText(), ((TextField) node1).getId());
+                    activeAccountDTO.setAttribute(((TextField) node1).getText(), ((TextField) node1).getId()); //TODO
                 }
             }
         }
-        // Hier ein OutputStream auf die Objektdatei:
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(updatedFile));
-            oos.writeObject(activeAccountDTO);
-            oos.close();
-            updatedFile.renameTo(new File(activeAccountDTO.getName() + ".ser")); // Hier ist der Name bereits geupdatet
-        } catch( IOException e) {
-            e.printStackTrace();
-        }
+        // TODO: In die Datenbank schreiben
+        AccountDAO accountDAO = new AccountDAO();
+        accountDAO.accountUpdaten(activeAccountDTO);
         setActiveAccountDTO(activeAccountDTO);
 
 

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class Katalog implements Serializable { // Singleton: der katalog ist nur über 'Katalog.instance()' erreichbar
 
     private static Katalog uniqueInstance;
-    private ArrayList<Produkt> bueromaterial;
-    private ArrayList<Produkt> elektronik;
-    private ArrayList<Produkt> rhb;
-    private ArrayList<Produkt> software;
+    private ArrayList<ProduktDTO> bueromaterial;
+    private ArrayList<ProduktDTO> elektronik;
+    private ArrayList<ProduktDTO> rhb;
+    private ArrayList<ProduktDTO> software;
     private int anzahlProdukte;
 
     private Katalog() {
@@ -23,7 +23,7 @@ public class Katalog implements Serializable { // Singleton: der katalog ist nur
         return uniqueInstance;
     }
 
-    public void addProduct(Produkt p) {
+    public void addProduct(ProduktDTO p) {
 
         switch(p.getProduktKategorie()) {
             case BUEROMATERIAL:
@@ -43,12 +43,12 @@ public class Katalog implements Serializable { // Singleton: der katalog ist nur
         }
 
 
-//        ArrayList<Produkt> Katalog = new ArrayList<Produkt>();
+//        ArrayList<ProduktDTO> Katalog = new ArrayList<ProduktDTO>();
 //        Katalog.add(p);
         anzahlProdukte++;
     }
 
-    public boolean removeProduct(Produkt p) {
+    public boolean removeProduct(ProduktDTO p) {
 
         switch(p.getProduktKategorie()) {
             case BUEROMATERIAL:
@@ -70,8 +70,8 @@ public class Katalog implements Serializable { // Singleton: der katalog ist nur
         return true;
     }
 
-    public ArrayList<Produkt> getFullKatalog() {
-        ArrayList<Produkt> ret = new ArrayList<>();
+    public ArrayList<ProduktDTO> getFullKatalog() {
+        ArrayList<ProduktDTO> ret = new ArrayList<>();
         ret.addAll(bueromaterial);
         ret.addAll(elektronik);
         ret.addAll(rhb);
@@ -79,35 +79,35 @@ public class Katalog implements Serializable { // Singleton: der katalog ist nur
         return ret;
     }
 
-    public ArrayList<Produkt> getBueromaterial() {
+    public ArrayList<ProduktDTO> getBueromaterial() {
         return bueromaterial;
     }
 
-    public void setBueromaterial(ArrayList<Produkt> bueromaterial) {
+    public void setBueromaterial(ArrayList<ProduktDTO> bueromaterial) {
         this.bueromaterial = bueromaterial;
     }
 
-    public ArrayList<Produkt> getElektronik() {
+    public ArrayList<ProduktDTO> getElektronik() {
         return elektronik;
     }
 
-    public void setElektronik(ArrayList<Produkt> elektronik) {
+    public void setElektronik(ArrayList<ProduktDTO> elektronik) {
         this.elektronik = elektronik;
     }
 
-    public ArrayList<Produkt> getRhb() {
+    public ArrayList<ProduktDTO> getRhb() {
         return rhb;
     }
 
-    public void setRhb(ArrayList<Produkt> rhb) {
+    public void setRhb(ArrayList<ProduktDTO> rhb) {
         this.rhb = rhb;
     }
 
-    public ArrayList<Produkt> getSoftware() {
+    public ArrayList<ProduktDTO> getSoftware() {
         return software;
     }
 
-    public void setSoftware(ArrayList<Produkt> software) {
+    public void setSoftware(ArrayList<ProduktDTO> software) {
         this.software = software;
     }
 

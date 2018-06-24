@@ -23,10 +23,11 @@ public class MainPaneController implements Initializable {
     FXMLLoader loader; // Um auf die Controller-Objekte der eingelesenen Panes zugreifen zu können
     private AccountDTO activeAccountDTO;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Admin testAdmin = new Admin("Test", "AccountDTO", "Test", "0123456789", "testemail@test.de" ,
-                new Adresse("Teststreet", "123", "45279", "Essen", "DE", AdressTyp.KontaktAdresse));
+//        AdminAdapter testAdmin = new AdminAdapter("Test", "AccountDTO", "Test", "0123456789", "testemail@test.de" ,
+//                new Adresse("Teststreet", "123", "45279", "Essen", "DE", AdressTyp.KontaktAdresse));
 //        activeAccountDTO = new AccountDTO();
         try {
             produktKatalogAnzeigen();
@@ -38,10 +39,13 @@ public class MainPaneController implements Initializable {
     @FXML
     public void produktKatalogAnzeigen() throws IOException {
 //        Parent content = FXMLLoader.load(getClass().getResource("katalogPane.fxml"));
-        loader = new FXMLLoader(getClass().getResource("katalogPane.fxml"));
+        loader = new FXMLLoader();
+        loader.setController(new KatalogPaneController(activeAccountDTO)); // Muss manuell gesetzt werden, um activeAccountDTO zu übergeben. Controller ist in der FXML Datei bewusst nicht gesetzt.
+        loader.setLocation(getClass().getResource("katalogPane.fxml"));
         Parent content = loader.load();
-        ((KatalogPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
+//        ((KatalogPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
         ((KatalogPaneController)loader.getController()).setMotherPaneController(this);
+//        Parent content = loader.load();
         contentPane.getChildren().setAll(content);
 //        System.out.println(contentPane);
     }

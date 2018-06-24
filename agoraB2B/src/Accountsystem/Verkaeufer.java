@@ -4,9 +4,8 @@ public class Verkaeufer extends Kaeufer {
 
     private int anzahlVerkaeufe = 0;
 
-    public Verkaeufer(String vorname, String nachname, String firma, String telefonnummer, String emailAdresse, /*AccountDTO account,*/
-                      Adresse kontaktAdresse) {
-        super(vorname, nachname, firma, telefonnummer, emailAdresse,/* account,*/ kontaktAdresse);
+    public Verkaeufer(String vorname, String nachname, String firma, String telefonnummer, String emailAdresse,String strasse, String hausnummer, String plz, String stadt, String land) {
+        super(vorname, nachname, firma, telefonnummer, emailAdresse, strasse, hausnummer, plz, stadt, land);
     }
 
     protected void produktAnbieten() {

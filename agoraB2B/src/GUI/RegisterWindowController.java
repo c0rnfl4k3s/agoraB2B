@@ -2,7 +2,7 @@ package GUI;
 
 import Accountsystem.*;
 import Datenbank.AccountDAO;
-import Datenbank.InterfaceDAO;
+import Datenbank.AccountInterface;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,7 +19,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -67,11 +67,14 @@ public class RegisterWindowController implements Initializable {
 
     @FXML
     public void createAccount() throws IOException{
+
+        AccountInterface neuerAccountDAO = new AccountDAO();
+
         if (!formCompleted()){    // Alle Felder ausgefüllt?
             alert.setContentText("Die Felder wurden nicht korrekt ausgefüllt.\nBitte achten Sie auf die Verwendung von zulässigen Zeichen.");
             alert.showAndWait(); // Fehlermeldung zeigen
             return;
-        } else if (!checkBenutzername()) {
+        } else if (!checkBenutzername((AccountDAO) neuerAccountDAO)) {
             alert.setContentText("Dieser Benutzername ist leider schon vergeben!");
             alert.showAndWait(); // Fehlermeldung zeigen
             return;
@@ -82,33 +85,32 @@ public class RegisterWindowController implements Initializable {
         }
 
         // Wenn alles in Ordnung ist:
-        Adresse neueKontaktAdresse = new Adresse(strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
-                stadtTextfield.getText().trim(), landTextfield.getText().trim() , AdressTyp.KontaktAdresse);
+
+//        Adresse neueKontaktAdresse = new Adresse(strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
+//                stadtTextfield.getText().trim(), landTextfield.getText().trim() , AdressTyp.KontaktAdresse);
         Benutzer neuerBenutzer;
-        if(userTextfield.getText().contains("admin")) { // Wenn der String "admin" im Usernamen enthalten ist, wird der neue User als Admin registriert. (Zum testen der Adminfunktionen)
-            neuerBenutzer = new Admin(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
-                    telTextfield.getText().trim(), emailTextfield.getText().trim(), neueKontaktAdresse);
+        if(userTextfield.getText().contains("admin")) { // Wenn der String "admin" im Usernamen enthalten ist, wird der neue User als AdminAdapter registriert. (Zum testen der Adminfunktionen)
+            neuerBenutzer = new AdminAdapter(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
+                    telTextfield.getText().trim(), emailTextfield.getText().trim(), strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
+                    stadtTextfield.getText().trim(), landTextfield.getText().trim());
         } else {
             neuerBenutzer = new Kaeufer(vornameTextfield.getText().trim(), nachnameTextfield.getText().trim(), firmaTextfield.getText().trim(),
-                    telTextfield.getText().trim(), emailTextfield.getText().trim(), neueKontaktAdresse);
+                    telTextfield.getText().trim(), emailTextfield.getText().trim(), strasseTextfield.getText().trim(), hausnummerTextfield.getText().trim(), plzTextfield.getText().trim(),
+                    stadtTextfield.getText().trim(), landTextfield.getText().trim());
         }
-        Bankkonto neuesBankkonto = new Bankkonto(1337.420, ibanTextfield.getText().trim(), bicTextfield.getText().trim(), banknameTextfield.getText().trim());
+//        Bankkonto neuesBankkonto = new Bankkonto(1337.420, ibanTextfield.getText().trim(), bicTextfield.getText().trim(), banknameTextfield.getText().trim());
         // In dieser Zeile (zw. Bankkonto und AccountDTO) stand vorher das setzen der static-variable "anzahlAccounts", jetzt in Main.java
-        AccountDTO neuerAccountDTO = new AccountDTO(userTextfield.getText().trim(), pw1Textfield.getText(), neuesBankkonto);
+        AccountDTO neuerAccountDTO = new AccountDTO(userTextfield.getText().trim(), pw1Textfield.getText(), ibanTextfield.getText().trim(), bicTextfield.getText().trim(), banknameTextfield.getText().trim());
         neuerBenutzer.setAccountDTO(neuerAccountDTO);
         neuerAccountDTO.setBenutzer(neuerBenutzer);
-        neuesBankkonto.setAccountDTO(neuerAccountDTO);
+//        neuesBankkonto.setAccountDTO(neuerAccountDTO);
 
         System.out.println(neuerBenutzer);
 
-        // TODO: 'neuerAccountDTO' in die Datenbank hinzufügen
         try {
 
-           InterfaceDAO neuerAccountDAO = new AccountDAO();
             neuerAccountDAO.accountErstellen(neuerAccountDTO);
-
-
-            System.out.println(neuerBenutzer);
+//            System.out.println(neuerBenutzer);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,35 +122,29 @@ public class RegisterWindowController implements Initializable {
         ((MainPaneController)(loader.getController())).setActiveAccountDTO(neuerAccountDTO);
         regPane.getScene().getWindow().setHeight(390+48);
         regPane.getScene().getWindow().setWidth(600+16);
+
+
+//        ((AccountDAO) neuerAccountDAO).disconnectDB();
     }
 
     public boolean formCompleted() { // Soll checken ob in allen Feldern was drin steht (später: mit Exception-Handling lösen)
         Set<Node> nodes = regPane.lookupAll(".text-field");
-//        System.out.println(nodes.isEmpty());
         for(Node node: nodes) {
             if(((TextField)node).getText().trim().equals("")) { // trim() entfernt führende und endende Leerzeichen
                 return false;
             }
-//            System.out.println(((TextField)node).getText().trim());
         }
         return true;
     }
 
-    public boolean checkBenutzername() {
-        File[] accountFiles = new File(System.getProperty("user.dir")).listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) { // alle Dateien im Verzeichnis die mit ".ser" enden
-                return name.endsWith(".ser");
-            }
-        });
+    public boolean checkBenutzername(AccountDAO neuerAccountDAO) { // TODO: Soll in die Datenbank gucken und nicht ins Verzeichnis
 
-        for(int i = 0; i < accountFiles.length; i++) {
-//            System.out.println(accountFiles[i].getName());
-            if(accountFiles[i].getName().equals(userTextfield.getText().trim() + ".ser")) {
-                return false;
-            }
+        try {
+            return neuerAccountDAO.checkNames(userTextfield.getText().trim());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return true;
+        return false;
     }
 
     public boolean checkPWs() {
