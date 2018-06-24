@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>3</zoom_level>
+  <zoom_level>4</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>255</y>
-      <w>69</w>
-      <h>66</h>
+      <x>60</x>
+      <y>244</y>
+      <w>92</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 Benutzer
@@ -26,10 +26,10 @@ Benutzer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>543</x>
-      <y>354</y>
-      <w>54</w>
-      <h>30</h>
+      <x>364</x>
+      <y>436</y>
+      <w>72</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>Postfach
 --
@@ -39,10 +39,10 @@ Benutzer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>342</y>
-      <w>69</w>
-      <h>21</h>
+      <x>60</x>
+      <y>360</y>
+      <w>92</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Kaeufer
 --
@@ -54,34 +54,34 @@ Benutzer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>318</y>
-      <w>9</w>
-      <h>30</h>
+      <x>1036</x>
+      <y>172</y>
+      <w>72</w>
+      <h>236</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;570.0;160.0;570.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>567</x>
-      <y>333</y>
-      <w>9</w>
-      <h>27</h>
+      <x>308</x>
+      <y>412</y>
+      <w>64</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>140.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>489</x>
-      <y>273</y>
-      <w>30</w>
-      <h>12</h>
+      <x>148</x>
+      <y>268</y>
+      <w>40</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -91,10 +91,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>609</x>
-      <y>261</y>
-      <w>42</w>
-      <h>12</h>
+      <x>308</x>
+      <y>252</y>
+      <w>56</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -104,36 +104,23 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>609</x>
-      <y>303</y>
-      <w>42</w>
-      <h>102</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=0,1
-m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;30.0;10.0;30.0;310.0;120.0;310.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>753</x>
-      <y>303</y>
-      <w>9</w>
-      <h>30</h>
+      <x>500</x>
+      <y>308</y>
+      <w>12</w>
+      <h>124</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;290.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>276</y>
-      <w>24</w>
-      <h>12</h>
+      <x>468</x>
+      <y>272</y>
+      <w>32</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
@@ -143,10 +130,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>609</x>
-      <y>279</y>
-      <w>51</w>
-      <h>69</h>
+      <x>308</x>
+      <y>276</y>
+      <w>68</w>
+      <h>92</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -156,10 +143,10 @@ m2=2..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>681</x>
-      <y>297</y>
-      <w>9</w>
-      <h>33</h>
+      <x>404</x>
+      <y>300</y>
+      <w>12</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -169,10 +156,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>228</y>
-      <w>207</w>
-      <h>33</h>
+      <x>256</x>
+      <y>208</y>
+      <w>276</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=-
 
@@ -182,10 +169,10 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>543</x>
-      <y>402</y>
-      <w>54</w>
-      <h>27</h>
+      <x>364</x>
+      <y>504</y>
+      <w>72</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>Chat
 --
@@ -195,40 +182,40 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>567</x>
-      <y>381</y>
-      <w>9</w>
-      <h>27</h>
+      <x>396</x>
+      <y>472</y>
+      <w>12</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 </panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>426</y>
-      <w>72</w>
-      <h>36</h>
+      <x>60</x>
+      <y>504</y>
+      <w>96</w>
+      <h>48</h>
     </coordinates>
-    <panel_attributes>Admin
+    <panel_attributes>AdminAdapter
 --
 
 --
 # angeboteEntfernen(
         produkte: ArrayList&lt;Produkt&gt; )
 # accountSperren(Account acc)
-</panel_attributes>
++angebotEntfernen(Produkt p)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>378</y>
-      <w>69</w>
-      <h>36</h>
+      <x>60</x>
+      <y>408</y>
+      <w>92</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Verkaeufer
 --
@@ -243,10 +230,10 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>360</y>
-      <w>9</w>
-      <h>24</h>
+      <x>96</x>
+      <y>384</y>
+      <w>12</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -254,34 +241,21 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>453</x>
-      <y>411</y>
-      <w>9</w>
-      <h>21</h>
+      <x>100</x>
+      <y>452</y>
+      <w>12</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>489</x>
-      <y>300</y>
-      <w>96</w>
-      <h>165</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=5
-m2=1..*</panel_attributes>
-    <additional_attributes>300.0;520.0;60.0;520.0;60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>759</x>
-      <y>399</y>
-      <w>54</w>
-      <h>36</h>
+      <x>468</x>
+      <y>516</y>
+      <w>72</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 ProduktKategorie
@@ -296,10 +270,10 @@ Software
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>411</x>
-      <y>180</y>
-      <w>420</w>
-      <h>312</h>
+      <x>32</x>
+      <y>152</y>
+      <w>576</w>
+      <h>416</h>
     </coordinates>
     <panel_attributes>Accountsystem
 --</panel_attributes>
@@ -308,10 +282,10 @@ Software
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>210</y>
-      <w>72</w>
-      <h>45</h>
+      <x>648</x>
+      <y>184</y>
+      <w>96</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 LoginWindow
@@ -330,10 +304,10 @@ LoginWindow
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>273</y>
-      <w>72</w>
-      <h>204</h>
+      <x>648</x>
+      <y>268</y>
+      <w>96</w>
+      <h>272</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 RegisterWindow
@@ -386,10 +360,10 @@ RegisterWindow
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>945</x>
-      <y>183</y>
-      <w>72</w>
-      <h>69</h>
+      <x>756</x>
+      <y>148</y>
+      <w>96</w>
+      <h>92</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 MainPane
@@ -412,10 +386,10 @@ MainPane
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
-      <y>162</y>
-      <w>51</w>
-      <h>27</h>
+      <x>656</x>
+      <y>120</y>
+      <w>68</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -429,10 +403,10 @@ MainPane
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>159</y>
-      <w>72</w>
-      <h>69</h>
+      <x>888</x>
+      <y>116</y>
+      <w>96</w>
+      <h>92</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 KatalogPane
@@ -455,10 +429,10 @@ KatalogPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>897</x>
-      <y>252</y>
-      <w>9</w>
-      <h>27</h>
+      <x>692</x>
+      <y>240</y>
+      <w>12</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -466,21 +440,21 @@ KatalogPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>153</y>
-      <w>159</w>
-      <h>72</h>
+      <x>604</x>
+      <y>108</y>
+      <w>208</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>510.0;100.0;510.0;10.0;50.0;10.0;50.0;220.0;10.0;220.0</additional_attributes>
+    <additional_attributes>500.0;100.0;500.0;10.0;40.0;10.0;40.0;230.0;10.0;230.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>333</y>
-      <w>72</w>
-      <h>69</h>
+      <x>888</x>
+      <y>348</y>
+      <w>96</w>
+      <h>92</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 PostfachPane
@@ -502,10 +476,10 @@ PostfachPane
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>945</x>
-      <y>273</y>
-      <w>72</w>
-      <h>204</h>
+      <x>756</x>
+      <y>268</y>
+      <w>96</w>
+      <h>272</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 AccountPane
@@ -558,10 +532,10 @@ AccountPane
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>258</y>
-      <w>72</w>
-      <h>42</h>
+      <x>888</x>
+      <y>248</y>
+      <w>96</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 EinkaufswagenPane
@@ -576,10 +550,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>978</x>
-      <y>249</y>
-      <w>9</w>
-      <h>30</h>
+      <x>800</x>
+      <y>236</y>
+      <w>12</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -587,10 +561,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>897</x>
-      <y>186</y>
-      <w>9</w>
-      <h>30</h>
+      <x>692</x>
+      <y>152</y>
+      <w>12</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -598,10 +572,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1014</x>
-      <y>186</y>
-      <w>36</w>
-      <h>9</h>
+      <x>848</x>
+      <y>152</y>
+      <w>48</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
@@ -609,10 +583,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1014</x>
-      <y>234</y>
-      <w>36</w>
-      <h>51</h>
+      <x>848</x>
+      <y>216</y>
+      <w>48</w>
+      <h>68</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;150.0;70.0;150.0;70.0;10.0;10.0;10.0</additional_attributes>
@@ -620,10 +594,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1014</x>
-      <y>243</y>
-      <w>36</w>
-      <h>135</h>
+      <x>848</x>
+      <y>228</y>
+      <w>48</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;430.0;50.0;430.0;50.0;10.0;10.0;10.0</additional_attributes>
@@ -631,10 +605,10 @@ EinkaufswagenPane
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>555</x>
-      <y>195</y>
-      <w>324</w>
-      <h>57</h>
+      <x>236</x>
+      <y>164</y>
+      <w>432</w>
+      <h>76</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -643,10 +617,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>402</x>
-      <y>72</y>
-      <w>747</w>
-      <h>432</h>
+      <x>0</x>
+      <y>0</y>
+      <w>1412</w>
+      <h>672</h>
     </coordinates>
     <panel_attributes>cd agoraB2B_ood</panel_attributes>
     <additional_attributes/>
@@ -654,10 +628,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>411</x>
-      <y>84</y>
-      <w>420</w>
-      <h>93</h>
+      <x>44</x>
+      <y>16</y>
+      <w>560</w>
+      <h>124</h>
     </coordinates>
     <panel_attributes>Datenbank
 --</panel_attributes>
@@ -666,13 +640,13 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
-      <y>96</y>
-      <w>84</w>
-      <h>30</h>
+      <x>252</x>
+      <y>32</y>
+      <w>112</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;InterfaceDAO&gt;&gt;
-Benutzer
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+interfaceDA
 --
 --
 + accountErstellen(acc: AcountDTO) 
@@ -683,10 +657,10 @@ Benutzer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
-      <y>141</y>
-      <w>84</w>
-      <h>21</h>
+      <x>252</x>
+      <y>92</y>
+      <w>112</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 DTO
@@ -697,10 +671,10 @@ DTO
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>429</x>
-      <y>117</y>
-      <w>108</w>
-      <h>48</h>
+      <x>68</x>
+      <y>60</y>
+      <w>144</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>AccountAO
 --
@@ -716,10 +690,10 @@ DTO
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>699</x>
-      <y>120</y>
-      <w>105</w>
-      <h>48</h>
+      <x>428</x>
+      <y>64</y>
+      <w>140</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>ConnectionManager
 --
@@ -738,10 +712,10 @@ user: String, passwd String): Connection
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>99</y>
-      <w>96</w>
-      <h>24</h>
+      <x>132</x>
+      <y>36</y>
+      <w>128</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>300.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
@@ -749,10 +723,10 @@ user: String, passwd String): Connection
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>513</x>
-      <y>246</y>
-      <w>99</w>
-      <h>90</h>
+      <x>180</x>
+      <y>232</y>
+      <w>132</w>
+      <h>196</h>
     </coordinates>
     <panel_attributes>AccountDTO
 --
@@ -767,6 +741,16 @@ _- anzahlAccounts: int = 0_
 - bestellungen: ArrayList&lt;Bestellung&gt;
 - ekw: Einkaufswagen
 - angeboteneProdukte: ArrayList&lt;Produkt&gt;
+- strasse: String
+- hausnummer: String
+- plz: String
+- stadt: String
+- land: String
+- account: Account
+- guthaben: double
+- iban: String
+- bic: String
+- bankName: String
 --
 + AccountDTO(nName String, nPasswort String, 
 bankkonto Bankkonto)
@@ -778,10 +762,10 @@ bankkonto Bankkonto)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>162</y>
-      <w>51</w>
-      <h>90</h>
+      <x>132</x>
+      <y>120</y>
+      <w>68</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>150.0;280.0;150.0;140.0;10.0;140.0;10.0;10.0</additional_attributes>
@@ -789,10 +773,10 @@ bankkonto Bankkonto)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>204</y>
-      <w>30</w>
-      <h>9</h>
+      <x>60</x>
+      <y>176</y>
+      <w>40</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>Ekw Produkt</panel_attributes>
     <additional_attributes/>
@@ -800,10 +784,10 @@ bankkonto Bankkonto)
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>855</x>
-      <y>144</y>
-      <w>285</w>
-      <h>348</h>
+      <x>636</x>
+      <y>96</y>
+      <w>752</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes>GUI
 --</panel_attributes>
@@ -812,10 +796,10 @@ bankkonto Bankkonto)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>927</x>
-      <y>162</y>
-      <w>45</w>
-      <h>15</h>
+      <x>732</x>
+      <y>120</y>
+      <w>60</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 LoginPaneController
@@ -825,10 +809,10 @@ LoginPaneController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>930</x>
-      <y>174</y>
-      <w>9</w>
-      <h>42</h>
+      <x>736</x>
+      <y>136</y>
+      <w>12</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
@@ -836,10 +820,10 @@ LoginPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>987</x>
-      <y>159</y>
-      <w>45</w>
-      <h>15</h>
+      <x>812</x>
+      <y>116</y>
+      <w>60</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 MainPaneController
@@ -849,10 +833,10 @@ MainPaneController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>996</x>
-      <y>171</y>
-      <w>9</w>
-      <h>18</h>
+      <x>824</x>
+      <y>132</y>
+      <w>12</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
@@ -860,10 +844,10 @@ MainPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>237</y>
-      <w>72</w>
-      <h>15</h>
+      <x>888</x>
+      <y>220</y>
+      <w>96</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 KatalogPaneController
@@ -873,10 +857,10 @@ KatalogPaneController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1074</x>
-      <y>225</y>
-      <w>9</w>
-      <h>18</h>
+      <x>928</x>
+      <y>204</y>
+      <w>12</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
@@ -884,10 +868,10 @@ KatalogPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>309</y>
-      <w>72</w>
-      <h>15</h>
+      <x>888</x>
+      <y>316</y>
+      <w>96</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 EinkauswagenPaneController
@@ -897,10 +881,10 @@ EinkauswagenPaneController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1074</x>
-      <y>297</y>
-      <w>9</w>
-      <h>18</h>
+      <x>928</x>
+      <y>300</y>
+      <w>12</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
@@ -908,10 +892,10 @@ EinkauswagenPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>417</y>
-      <w>72</w>
-      <h>15</h>
+      <x>888</x>
+      <y>460</y>
+      <w>96</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 PostfachPaneController
@@ -921,10 +905,10 @@ PostfachPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>441</y>
-      <w>72</w>
-      <h>15</h>
+      <x>888</x>
+      <y>492</y>
+      <w>96</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 AccountPaneController
@@ -934,10 +918,10 @@ AccountPaneController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1044</x>
-      <y>462</y>
-      <w>72</w>
-      <h>15</h>
+      <x>888</x>
+      <y>520</y>
+      <w>96</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;gui&gt;&gt;
 RegisterWindowController
@@ -947,10 +931,10 @@ RegisterWindowController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1074</x>
-      <y>399</y>
-      <w>9</w>
-      <h>24</h>
+      <x>928</x>
+      <y>436</y>
+      <w>12</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -958,10 +942,10 @@ RegisterWindowController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1014</x>
-      <y>447</y>
-      <w>36</w>
-      <h>9</h>
+      <x>848</x>
+      <y>500</y>
+      <w>48</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
@@ -969,10 +953,10 @@ RegisterWindowController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>891</x>
-      <y>474</y>
-      <w>195</w>
-      <h>18</h>
+      <x>684</x>
+      <y>536</y>
+      <w>260</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0;630.0;40.0;630.0;10.0</additional_attributes>
@@ -980,10 +964,10 @@ RegisterWindowController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>747</x>
-      <y>255</y>
-      <w>75</w>
-      <h>51</h>
+      <x>492</x>
+      <y>244</y>
+      <w>100</w>
+      <h>68</h>
     </coordinates>
     <panel_attributes>Produkt
 --
@@ -1001,10 +985,10 @@ RegisterWindowController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>240</y>
-      <w>84</w>
-      <h>60</h>
+      <x>360</x>
+      <y>224</y>
+      <w>112</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Einkaufswagen
 --
@@ -1025,13 +1009,14 @@ RegisterWindowController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>732</x>
-      <y>327</y>
-      <w>78</w>
-      <h>45</h>
+      <x>472</x>
+      <y>424</y>
+      <w>104</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Katalog
 --
+subjectState
 + Buereomaterial: ArrayList&lt;Produkt&gt;
 + Elektronik: ArrayList&lt;Produkt&gt;
 + RHB: ArrayList&lt;Produkt&gt;
@@ -1039,16 +1024,18 @@ RegisterWindowController
 + anzahlProdukte: int
 --
 + addProduct(p: Produkt): boolean
-+ removeProduct(p: Produkt): boolean</panel_attributes>
++ removeProduct(p: Produkt): boolean
+getState()
+setState()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>654</x>
-      <y>324</y>
-      <w>54</w>
-      <h>51</h>
+      <x>368</x>
+      <y>336</y>
+      <w>72</w>
+      <h>68</h>
     </coordinates>
     <panel_attributes>Bestellung
 --
@@ -1065,83 +1052,182 @@ RegisterWindowController
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>645</x>
-      <y>384</y>
-      <w>54</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Bankkonto
---
-- account: Account
-- guthaben: double
-- iban: String
-- bic: String
-- bankName: String</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>579</x>
-      <y>438</y>
-      <w>54</w>
-      <h>39</h>
-    </coordinates>
-    <panel_attributes>Adresse
---
-- strasse: String
-- hausnummer: String
-- plz: String
-- stadt: String
-- land: String
-- adresstyp: AdressTyp
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>456</y>
-      <w>30</w>
-      <h>12</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>654</x>
-      <y>438</y>
-      <w>54</w>
-      <h>39</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
-AdressTyp
---
-LieferAdresse
-RechnungsAdresse
-KontaktAdresse
-AbsendeAdresse 
-RuecksendeAdress
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>852</x>
-      <y>252</y>
-      <w>24</w>
-      <h>30</h>
+      <x>632</x>
+      <y>240</y>
+      <w>36</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;import&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>472</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+adminAdapterInterface
+--
++angebotEntfernen()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>480</y>
+      <w>84</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>392</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;gui&gt;&gt;
+KatalogContentAdminsichtController
+--
+-KatalogPaneController motherPaneController;
+-AccountDTO activeAccountDTO;
+--
++initialize(URL location, ResourceBundle resources)
++setActiveAccountDTO(AccountDTO activeAccountDTO)
++setMotherPaneController(KatalogPaneControllerkatalogPaneController)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>192</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;gui&gt;&gt;
+KatalogContentVerkaeufersichtController
+--
+-KatalogPaneController motherPaneController;
+-AccountDTO activeAccountDTO;
+--
++initialize(URL location, ResourceBundle resources)
++setActiveAccountDTO(AccountDTO activeAccountDTO)
++setMotherPaneController(KatalogPaneController katalogPaneController)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>292</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;gui&gt;&gt;
+KatalogContentKaeufersichtController
+--
+-KatalogPaneController motherPaneController;
+-AccountDTO activeAccountDTO;
+--
++initialize(URL location, ResourceBundle resources)
++setActiveAccountDTO(AccountDTO activeAccountDTO)
++setMotherPaneController(KatalogPaneController katalogPaneController)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>996</x>
+      <y>124</y>
+      <w>92</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Observer
+--
++initialize()
++setActiveAccountDTO()
++setMotherPaneController()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1036</x>
+      <y>192</y>
+      <w>72</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1036</x>
+      <y>292</y>
+      <w>72</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>336</y>
+      <w>88</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Subject
+--
+attach(o:Observer)
+detach(o:Observer)
+notify()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>172</y>
+      <w>436</w>
+      <h>444</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>1070.0;10.0;1070.0;1090.0;10.0;1090.0;10.0;540.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>384</y>
+      <w>12</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
 </diagram>
