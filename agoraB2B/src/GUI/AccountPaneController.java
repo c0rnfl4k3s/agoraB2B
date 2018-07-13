@@ -2,6 +2,7 @@ package GUI;
 
 import Accountsystem.AccountDTO;
 import Datenbank.AccountDAO;
+import Infrastruktur.PropertiesKlasse;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,10 +19,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AccountPaneController implements Initializable {
+
+    private PropertiesKlasse p = new PropertiesKlasse();
+    private String selectedCountry = p.getProp().getProperty("country","DE");
+    private String selectedLanguage = p.getProp().getProperty("lang","de");
+    private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
 
     @FXML
     AnchorPane accountPane;
@@ -58,10 +66,19 @@ public class AccountPaneController implements Initializable {
 
     }
 
+    
+    /**
+     * 
+     * @return Es wird der aktive Account zurückgegeben
+     */
     public AccountDTO getActiveAccountDTO() {
         return activeAccountDTO;
     }
 
+    /**
+     * Die Userdaten des aktiven Accounts werden in den Textfeldern angezeigt
+     * @param activeAccountDTO
+     */
     public void setActiveAccountDTO(AccountDTO activeAccountDTO) { // setzt auch alle Textfelder
 
 //        if(this.activeAccountDTO == null || !activeAccountDTO.equals(this.activeAccountDTO)) {
@@ -79,8 +96,12 @@ public class AccountPaneController implements Initializable {
         }
     }
 
+    
+    /**
+     * Ein Benutzer kann einen ihm zugeordneten aktivenAccount löschen.
+     */
     public void accountLoeschen() {
-        Alert deleteAccAlert = new Alert(Alert.AlertType.CONFIRMATION, "Sind Sie sicher, dass Sie Ihren AccountDTO löschen möchten?");
+        Alert deleteAccAlert = new Alert(Alert.AlertType.CONFIRMATION, "Sind Sie sicher, dass Sie Ihren Account löschen möchten?");
         Optional<ButtonType> result = deleteAccAlert.showAndWait();
         if (result.get() == ButtonType.OK){
             // Benutzer hat OK geklickt
@@ -91,15 +112,24 @@ public class AccountPaneController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Benutzer '" + activeAccountDTO.getName() + "' wurde gelöscht.");
         }
     }
 
+    
+    /**
+     * 
+     * Ermöglicht die Bearbeitung der User-Daten
+     */
     public void bearbeitungAktivieren(ActionEvent actionEvent) {
 
         switchButtons();
         switchEditable();
     }
 
+    /**
+     * Speichert die neuen Eingaben nach der Bearbeitung der User-Daten
+     */
     public void bearbeitungSpeichern() {
 
         File checkFile = new File(userTextfield.getText() + ".ser");
@@ -126,14 +156,17 @@ public class AccountPaneController implements Initializable {
                 }
             }
         }
-        // TODO: In die Datenbank schreiben
         AccountDAO accountDAO = new AccountDAO();
         accountDAO.accountUpdaten(activeAccountDTO);
         setActiveAccountDTO(activeAccountDTO);
 
-
+        Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Benutzer '" + activeAccountDTO.getName() + "' wurde bearbeitet.");
     }
 
+    
+    /**
+     * Beendet den Bearbeitungsmodus ohne Speicherung
+     */
     public void bearbeitungAbbrechen() {
 
         switchButtons();
@@ -141,6 +174,9 @@ public class AccountPaneController implements Initializable {
         setActiveAccountDTO(activeAccountDTO); // liest wieder die ursprünglichen TextField-Inhalte ein
     }
 
+    /**
+     * Aktiviert bzw. deaktiviert die Bearbeitung der Formularfelder
+     */    
     public void switchEditable() {
         for(Node node: accordion.getPanes()) { // schrittweise alle 3 Panes durchlaufen
             ObjectProperty<Node> contentNode = ((TitledPane)node).contentProperty(); // Inhalte der TitledPane im Accordion getten
@@ -152,6 +188,9 @@ public class AccountPaneController implements Initializable {
         }
     }
 
+    /**
+     * Aktiviert bzw. deaktiviert den Speicher-, Bearbeitungs- und Abbrechen-Button
+     */
     public void switchButtons() {
         bearbeitenButton.setDisable(!bearbeitenButton.isDisabled()); // später in Methode "switchButtons()" oder so auslagern
         abbrechenButton.setDisable(!abbrechenButton.isDisabled());

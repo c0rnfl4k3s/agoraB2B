@@ -13,6 +13,10 @@ public class ConnectionManager {
 
     }
 
+    
+    /**
+    * Erstellt einen ConnectionManager zur Datenbank.
+    */
     public static ConnectionManager create()
     {
         if(!created)
@@ -28,6 +32,9 @@ public class ConnectionManager {
         }
     }
 
+    /**
+    * Erstellt die Verbindung zur Datenbank
+    */
     public Connection connectDB(String host, String database, String user, String passwd) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -46,7 +53,9 @@ public class ConnectionManager {
         }
     }
 
-
+    /**
+    * Trennt die Verbinfdung zur Datenbank und gibt die Verbindung zurück.
+    */
     public Connection close()
     {
         try

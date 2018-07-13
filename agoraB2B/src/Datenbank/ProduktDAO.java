@@ -25,6 +25,10 @@ public class ProduktDAO implements ProduktInterface {
         }
     }
 
+    
+    /**
+     * Schreibt alle nötigen Attributwerte eines Produkts in die Datenbank
+     */
     @Override
     public void produktAnbieten(ProduktDTO neuesProdukt) throws SQLException {
 
@@ -44,6 +48,9 @@ public class ProduktDAO implements ProduktInterface {
         }
     }
 
+    /**
+     * ändert die Attributwerte eines Produkts in der Datenbank durch Ausführung des Benutzers.
+     */
     @Override
     public void produktBearbeiten(ProduktDTO produkt) throws SQLException {
 
@@ -62,6 +69,9 @@ public class ProduktDAO implements ProduktInterface {
         }
     }
 
+    /**
+     * Entfernt ein Produkt aus der Datenbank.
+     */
     @Override
     public void produktEntfernen(int produktID) throws SQLException {
 
@@ -76,6 +86,9 @@ public class ProduktDAO implements ProduktInterface {
         }
     }
 
+    /**
+     * Gibt alle Produkte aus der Datenbank in einer Liste zurück.
+     */
     @Override
     public ArrayList<ProduktDTO> readProducts() throws SQLException {
         ArrayList<ProduktDTO> ret = new ArrayList<>();

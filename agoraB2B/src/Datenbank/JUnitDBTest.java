@@ -8,8 +8,11 @@ import static junit.framework.Assert.*;
 
 public class JUnitDBTest {
 
+	/**
+    * Verbindet zur DB und prüft ob Accounts in der DB vorhanden sind.
+    */
     @Test
-    public void readAccounts() { // Verbindet zur DB und prüft ob Accounts in der DB vorhanden sind
+    public void readAccounts() { 
         AccountInterface acc = new AccountDAO();
         try {
             assertFalse(acc.readAccounts().isEmpty());
@@ -18,8 +21,11 @@ public class JUnitDBTest {
         }
     }
 
+    /**
+     * Verbindet zur DB und prüft ob Produkte in der DB vorhanden sind.
+     */
     @Test
-    public void readProducts() { // Verbindet zur DB und prüft ob Produkte vorhanden sind
+    public void readProducts() { 
 
         ProduktInterface p = new ProduktDAO();
         try {

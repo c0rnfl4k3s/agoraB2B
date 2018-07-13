@@ -3,6 +3,7 @@ package GUI;
 import Accountsystem.*;
 import Datenbank.AccountDAO;
 import Datenbank.AccountInterface;
+import Infrastruktur.PropertiesKlasse;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -20,10 +21,17 @@ import javafx.scene.layout.AnchorPane;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
 public class RegisterWindowController implements Initializable {
+
+    private PropertiesKlasse p = new PropertiesKlasse();
+    private String selectedCountry = p.getProp().getProperty("country","DE");
+    private String selectedLanguage = p.getProp().getProperty("lang","de");
+    private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
 
     @FXML
     AnchorPane regPane;
@@ -55,7 +63,11 @@ public class RegisterWindowController implements Initializable {
         alert.setTitle("Hinweis");
         alert.setHeaderText("Es ist ein Fehler aufgetreten!");
     }
-
+    
+    /**
+     * Ruft das Login-Fenster auf.
+     * @throws IOException
+     */
     @FXML
     public void showLoginScene() throws IOException {
 
@@ -65,6 +77,10 @@ public class RegisterWindowController implements Initializable {
         regPane.getScene().getWindow().setWidth(311 + 16);
     }
 
+    /**
+     * Erstellt neuen Account mit den angegebenen Daten und stellt diese zum Transfer in die Datenbank zur Verfügung
+     * @throws IOException
+     */
     @FXML
     public void createAccount() throws IOException{
 
@@ -131,6 +147,10 @@ public class RegisterWindowController implements Initializable {
 //        ((AccountDAO) neuerAccountDAO).disconnectDB();
     }
 
+    /**
+     * Prüft ob die notwendigen Felder ausgefüllt wurden.
+     * @throws IOException
+     */
     public boolean formCompleted() { // Soll checken ob in allen Feldern was drin steht (später: mit Exception-Handling lösen)
         Set<Node> nodes = regPane.lookupAll(".text-field");
         for(Node node: nodes) {
@@ -141,6 +161,10 @@ public class RegisterWindowController implements Initializable {
         return true;
     }
 
+    /**
+     * Prüft den Benutzernamen eines Accounts
+     * @throws IOException
+     */
     public boolean checkBenutzername(AccountDAO neuerAccountDAO) {
 
         try {
@@ -151,6 +175,10 @@ public class RegisterWindowController implements Initializable {
         return false;
     }
 
+    /**
+     * Prüft ob die Passwörter indentisch sind, die eingegeben wurden.
+     * @throws IOException
+     */
     public boolean checkPWs() {
         return pw1Textfield.getText().contentEquals(pw2Textfield.getText());
     }

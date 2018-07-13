@@ -29,6 +29,7 @@ public class Main extends Application {
         primaryStage.setScene(loginScene);
         primaryStage.setResizable(false);
         primaryStage.show();
-
+        Infrastruktur.LoggerKlasse.getInstance().addHandler(Infrastruktur.LoggerKlasse.getInstance().getLog());
+        Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Programm gestartet.");
     }
 }

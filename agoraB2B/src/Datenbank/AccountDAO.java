@@ -2,6 +2,7 @@ package Datenbank;
 
 import Accountsystem.*;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class AccountDAO implements AccountInterface {
         meineSitzung = new ConnectionManager();
         conn = meineSitzung.connectDB("db4free.net", "swttest", "swttest", "swtadmin");
 
-        if(conn!=null)///Verbindungsaufbau erfolgreich
+        if(conn!=null)//Verbindungsaufbau erfolgreich
         {
             System.out.println("Verbindung hergestellt.");
         }
@@ -26,11 +27,9 @@ public class AccountDAO implements AccountInterface {
         }
     }
 
- //   private Connection getInstance()
- //   {
- //       return conn;
- //   }
-
+    /**
+     *Erstellt ein Resultset für einen Account der aus der DB abgerufen wird.
+     */
     @Override
     public AccountDTO accountAbrufen(String username) throws SQLException {
 
@@ -70,6 +69,10 @@ public class AccountDAO implements AccountInterface {
         return result;
     }
 
+    /**
+     * Prüft  ob der Username bereits vergeben ist.
+     * 
+     */
     @Override
     public boolean checkNames(String username) throws SQLException { // return true, wenn username noch nicht vergeben.
 
@@ -87,6 +90,9 @@ public class AccountDAO implements AccountInterface {
         return true;
     }
 
+    /**
+     * Gibt eine Liste von allen existenten Accounts zurück.
+     */
     @Override
     public ArrayList<AccountDTO> readAccounts() throws SQLException{
         ArrayList<AccountDTO> ret = new ArrayList<>();
@@ -120,6 +126,9 @@ public class AccountDAO implements AccountInterface {
         return ret;
     }
 
+    /**
+    * Schreibt die Parameter eines Accounts in die Datenbank.
+    */
     @Override
     public void accountErstellen(AccountDTO neuerAccountDTO) {
     //    conn = getInstance(); // getCLass oder getInstance
@@ -151,13 +160,9 @@ public class AccountDAO implements AccountInterface {
 
                 String sql = "INSERT INTO Account(name, passwort, iban, bic, bankname)" + "VALUES(?,?,?,?,?)"; // id rausgenommen, weil autoinkrement
                 String sql1 = "INSERT INTO Benutzer(vorname, nachname, firma, telefonnummer, emailAdresse, strasse, hausnummer, plz, stadt, land, accountID)" + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-//                String sql2 = "INSERT INTO Bankkonto (iban,bic,bankName, userID)" + "VALUES(?,?,?,?)";
-//                String sql3 = "INSERT INTO Adresse(strasse, hausnummer, plz, stadt, land, userID)" + "VALUES(?,?,?,?,?,?)";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
-//                PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-//                PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
 
                 // Table Account
                 preparedStatement.setString(1, user);
@@ -192,6 +197,9 @@ public class AccountDAO implements AccountInterface {
         }
     }
 
+    /**
+    * ändert die Parameter eines Accounts in der Datenbank nach Änderungen durch einen Benutzer.
+    */
     @Override
     public void accountUpdaten(AccountDTO acc) {
 
@@ -226,7 +234,9 @@ public class AccountDAO implements AccountInterface {
     }
 
 
-
+    /**
+    * Löscht einen Account aus der Datenbank.
+    */
     @Override
     public void accountLoeschen(int accountID) {
 
@@ -244,6 +254,9 @@ public class AccountDAO implements AccountInterface {
         }
     }
 
+    /**
+    * Trennt die aktive Verbindung zur Datenbank.
+    */
     public void disconnectDB() {
 
         meineSitzung.close();

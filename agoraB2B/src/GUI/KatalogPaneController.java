@@ -3,6 +3,7 @@ package GUI;
 import Accountsystem.AccountDTO;
 import Accountsystem.AdminAdapter;
 import Accountsystem.Verkaeufer;
+import Infrastruktur.PropertiesKlasse;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,9 +13,16 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class KatalogPaneController implements Initializable {
+
+    private PropertiesKlasse p = new PropertiesKlasse();
+    private String selectedCountry = p.getProp().getProperty("country","DE");
+    private String selectedLanguage = p.getProp().getProperty("lang","de");
+    private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
 
     @FXML
     private Button software, elektronik, buero, rhb;
@@ -27,21 +35,25 @@ public class KatalogPaneController implements Initializable {
     private Pane katalogContent;
 
 
-    public KatalogPaneController(AccountDTO activeAccountDTO) { // Um die Variable setzen zuu können, bevor die initialize-Methode aufgerufen wird (Der Controller ist in der FXML nicht definiert, sondern manuell!)
-        setActiveAccountDTO(activeAccountDTO);
-    }
+//    public KatalogPaneController(AccountDTO activeAccountDTO) { // Um die Variable setzen zuu können, bevor die initialize-Methode aufgerufen wird (Der Controller ist in der FXML nicht definiert, sondern manuell!)
+//        setActiveAccountDTO(activeAccountDTO);
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println(activeAccountDTO);
-        if(activeAccountDTO.getBenutzer() instanceof AdminAdapter) {
-            adminsichtAnzeigen();
-        } else if (activeAccountDTO.getBenutzer() instanceof Verkaeufer) {
-            verkaeufersichtAnzeigen();
-        } else {
-            kaeufersichtAnzeigen();
-        }
+//        System.out.println(activeAccountDTO);
+//        try {
+//            if (activeAccountDTO.getBenutzer() instanceof AdminAdapter) {
+//                adminsichtAnzeigen();
+//            } else if (activeAccountDTO.getBenutzer() instanceof Verkaeufer) {
+//                verkaeufersichtAnzeigen();
+//            } else {
+//                kaeufersichtAnzeigen();
+//            }
+//        } catch (NullPointerException e) {
+//            kaeufersichtAnzeigen();
+//        }
         // TODO: (evtl. nicht an dieser stelle): Buttons der Tabelle hinzufügen für Adminsicht: https://stackoverflow.com/questions/29489366/how-to-add-button-in-javafx-table-view
     }
 
