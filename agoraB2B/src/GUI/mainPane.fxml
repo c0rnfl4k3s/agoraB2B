@@ -10,12 +10,12 @@
    <top>
       <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-            <Button id="produktKatalog" mnemonicParsing="false" onAction="#produktKatalogAnzeigen" text="Produktkatalog" />
-            <Button id="postfach" mnemonicParsing="false" onAction="#postfachAnzeigen" text="Postfach" />
-            <Button id="accountDTO" mnemonicParsing="false" onAction="#accountAnzeigen" text="Account" />
-            <HBox prefHeight="30.0" prefWidth="202.0" />
-            <Button id="einkaufswagen" mnemonicParsing="false" onAction="#einkaufswagenAnzeigen" text="Einkaufswagen" />
-            <Button id="logoutButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#logout" text="logout" />
+            <Button id="produktKatalog" fx:id="produktKatalogButton" mnemonicParsing="false" onAction="#produktKatalogAnzeigen" text="Produktkatalog" />
+            <Button id="postfach" fx:id="postfachButton" mnemonicParsing="false" onAction="#postfachAnzeigen" text="Postfach" />
+            <Button id="accountDTO" fx:id="accountButton" mnemonicParsing="false" onAction="#accountAnzeigen" text="Account" />
+            <HBox prefHeight="30.0" prefWidth="196.0" />
+            <Button id="einkaufswagen" fx:id="einkaufswagenButton" mnemonicParsing="false" onAction="#einkaufswagenAnzeigen" text="Einkaufswagen" />
+            <Button id="logoutButton" fx:id="logoutButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#logout" text="logout" />
         </items>
       </ToolBar>
    </top>

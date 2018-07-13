@@ -14,7 +14,7 @@ public class KatalogContentAdminsichtController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     private KatalogPaneController motherPaneController;
     private AccountDTO activeAccountDTO;
@@ -30,5 +30,9 @@ public class KatalogContentAdminsichtController implements Initializable {
 
     public void setMotherPaneController(KatalogPaneController katalogPaneController) {
         this.motherPaneController = katalogPaneController;
+    }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
     }
 }

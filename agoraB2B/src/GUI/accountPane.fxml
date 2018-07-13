@@ -13,15 +13,15 @@
    <children>
       <Accordion fx:id="accordion" prefHeight="205.0" prefWidth="600.0">
         <panes>
-            <TitledPane animated="false" text="Allgemein">
+            <TitledPane fx:id="allgemeinPane" animated="false" text="Allgemein">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="16.0" text="Vorname:" />
-                        <Label layoutX="10.0" layoutY="57.0" text="Nachname:" />
-                        <Label layoutX="10.0" layoutY="97.0" text="Firma:" />
-                        <Label layoutX="310.0" layoutY="16.0" text="Benutzername:" />
-                        <Label layoutX="310.0" layoutY="57.0" text="E-Mail-Adresse:" />
+                        <Label fx:id="vornameLabel" layoutX="10.0" layoutY="16.0" text="Vorname:" />
+                        <Label fx:id="nachnameLabel" layoutX="10.0" layoutY="57.0" text="Nachname:" />
+                        <Label fx:id="firmaLabel" layoutX="10.0" layoutY="97.0" text="Firma:" />
+                        <Label fx:id="userLabel" layoutX="310.0" layoutY="16.0" text="Benutzername:" />
+                        <Label layoutX="310.0" layoutY="57.0" text="E-Mail:" />
                         <Label layoutX="310.0" layoutY="97.0" text="Tel.:" />
                         <TextField fx:id="vornameTextfield" editable="false" layoutX="103.0" layoutY="12.0" />
                         <TextField fx:id="userTextfield" editable="false" layoutX="410.0" layoutY="12.0" />
@@ -33,7 +33,7 @@
                      </children></AnchorPane>
               </content>
             </TitledPane>
-          <TitledPane animated="false" prefHeight="173.0" prefWidth="600.0" text="Bankverbindung">
+          <TitledPane fx:id="bankverbindungPane" animated="false" prefHeight="173.0" prefWidth="600.0" text="Bankverbindung">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="598.0">
                      <children>
@@ -46,16 +46,16 @@
                      </children></AnchorPane>
             </content>
           </TitledPane>
-          <TitledPane animated="false" text="Adressdetails">
+          <TitledPane fx:id="adressdetailsPane" animated="false" text="Adressdetails">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ComboBox fx:id="adressTypComboBox" layoutX="10.0" layoutY="13.0" prefHeight="25.0" prefWidth="142.0" />
-                        <Label layoutX="310.0" layoutY="24.0" text="PLZ:" />
-                        <Label layoutX="10.0" layoutY="58.0" text="Straße:" />
-                        <Label layoutX="10.0" layoutY="91.0" text="Hausnummer:" />
-                        <Label layoutX="310.0" layoutY="58.0" text="Stadt:" />
-                        <Label layoutX="310.0" layoutY="91.0" text="Land:" />
+                        <Label fx:id="plzLabel" layoutX="310.0" layoutY="24.0" text="PLZ:" />
+                        <Label fx:id="strasseLabel" layoutX="10.0" layoutY="58.0" text="Straße:" />
+                        <Label fx:id="hausnummerLabel" layoutX="10.0" layoutY="91.0" text="Hausnummer:" />
+                        <Label fx:id="stadtLabel" layoutX="310.0" layoutY="58.0" text="Stadt:" />
+                        <Label fx:id="landLabel" layoutX="310.0" layoutY="91.0" text="Land:" />
                         <TextField fx:id="strasseTextfield" editable="false" layoutX="103.0" layoutY="54.0" />
                         <TextField fx:id="hausnummerTextfield" editable="false" layoutX="103.0" layoutY="87.0" prefHeight="25.0" prefWidth="48.0" />
                         <TextField fx:id="plzTextfield" editable="false" layoutX="410.0" layoutY="20.0" prefHeight="25.0" prefWidth="69.0" />
@@ -70,6 +70,6 @@
       <Button fx:id="bearbeitenButton" layoutX="513.0" layoutY="321.0" mnemonicParsing="false" onAction="#bearbeitungAktivieren" text="Bearbeiten" />
       <Button fx:id="abbrechenButton" cancelButton="true" disable="true" layoutX="351.0" layoutY="321.0" mnemonicParsing="false" onAction="#bearbeitungAbbrechen" text="Abbrechen" />
       <Button fx:id="speichernButton" disable="true" layoutX="434.0" layoutY="321.0" mnemonicParsing="false" onAction="#bearbeitungSpeichern" text="Speichern" />
-      <Button layoutX="14.0" layoutY="321.0" mnemonicParsing="false" onAction="#accountLoeschen" style="-fx-base: #ee2211;;" text="Account Löschen" />
+      <Button fx:id="accountLoeschenButton" layoutX="14.0" layoutY="321.0" mnemonicParsing="false" onAction="#accountLoeschen" style="-fx-base: #ee2211;;" text="Account Löschen" />
    </children>
 </AnchorPane>

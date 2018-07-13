@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.*;
@@ -31,7 +28,7 @@ public class RegisterWindowController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     @FXML
     AnchorPane regPane;
@@ -42,6 +39,11 @@ public class RegisterWindowController implements Initializable {
         banknameTextfield, bicTextfield, strasseTextfield, hausnummerTextfield, plzTextfield, stadtTextfield, landTextfield;
     @FXML
     PasswordField pw1Textfield, pw2Textfield;
+    @FXML
+    Label vornameLabel, nachnameLabel, userLabel, firmaLabel, strasseLabel, hausnummerLabel, plzLabel, stadtLabel, landLabel, pwLabel, pw2Label, anredeLabel, bankverbindungLabel, kontaktAdresseLabel, adressHinweis;
+    @FXML
+    Button zurueckButton, newaccButton;
+
 
     Alert alert = new Alert(Alert.AlertType.INFORMATION); // Fehlermeldung-Fenster
 
@@ -62,6 +64,32 @@ public class RegisterWindowController implements Initializable {
         anredeChoiceBox.setValue("Herr"); // Um stadtardmäßig "Herr" auszuwählen
         alert.setTitle("Hinweis");
         alert.setHeaderText("Es ist ein Fehler aufgetreten!");
+    }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+        vornameLabel.setText(mybundle.getString("Vorname") + ":");
+        nachnameLabel.setText(mybundle.getString("Nachname") + ":");
+        userLabel.setText(mybundle.getString("Benutzername") + ":");
+        firmaLabel.setText(mybundle.getString("Firma") + ":");
+        strasseLabel.setText(mybundle.getString("Strasse") + ":");
+        hausnummerLabel.setText(mybundle.getString("Hausnummer") + ":");
+        plzLabel.setText(mybundle.getString("PLZ") + ":");
+        stadtLabel.setText(mybundle.getString("Stadt") + ":");
+        landLabel.setText(mybundle.getString("Land") + ":");
+        pwLabel.setText(mybundle.getString("Passwort") + ":");
+        pw2Label.setText(mybundle.getString("PasswortWiederholen") + ":");
+        anredeLabel.setText(mybundle.getString("Anrede") + ":");
+        bankverbindungLabel.setText(mybundle.getString("Bankverbindung") + ":");
+        kontaktAdresseLabel.setText(mybundle.getString("Kontaktadresse") + ":");
+        adressHinweis.setText(mybundle.getString("adressHinweis"));
+        zurueckButton.setText(mybundle.getString("Zurück"));
+        newaccButton.setText(mybundle.getString("AccountErstellen"));
+
+        if(mybundle.getString("Vorname").equals("First name")) {
+            anredeChoiceBox.setItems(FXCollections.observableArrayList("Mr.", "Mrs.", "Ms."));
+            anredeChoiceBox.setValue("Mr.");
+        }
     }
     
     /**

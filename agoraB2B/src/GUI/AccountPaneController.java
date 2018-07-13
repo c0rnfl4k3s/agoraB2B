@@ -29,7 +29,7 @@ public class AccountPaneController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     @FXML
     AnchorPane accountPane;
@@ -38,11 +38,15 @@ public class AccountPaneController implements Initializable {
     public TextField vornameTextfield, userTextfield, emailTextfield, telTextfield, nachnameTextfield, firmaTextfield, ibanTextfield,
             bicTextfield, banknameTextfield, strasseTextfield, hausnummerTextfield, stadtTextfield, plzTextfield, landTextfield;
     @FXML
-    ComboBox adressTypComboBox; // Funktioniert noch nicht!
+    ComboBox adressTypComboBox;
     @FXML
     Accordion accordion;
     @FXML
     Button bearbeitenButton, speichernButton, abbrechenButton, accountLoeschenButton;
+    @FXML
+    TitledPane allgemeinPane, bankverbindungPane, adressdetailsPane;
+    @FXML
+    Label vornameLabel, nachnameLabel, userLabel, firmaLabel, strasseLabel, hausnummerLabel, plzLabel, stadtLabel, landLabel;
 
     MainPaneController motherPaneController;
 
@@ -60,12 +64,39 @@ public class AccountPaneController implements Initializable {
                 }
             }
         });
-        adressTypComboBox.setItems(FXCollections.observableArrayList("Kontaktadresse", "Lieferadresse", "Rechnungsadresse", "Absendeadresse", "Rücksendeadresse"));
+        adressTypComboBox.setItems(FXCollections.observableArrayList("Kontaktadresse", "Lieferadresse", "Rechnungsadresse", "Absendeadresse"));
         adressTypComboBox.setValue("Kontaktadresse");
         accordion.setExpandedPane(accordion.getPanes().get(0));
 
     }
 
+    public void setResourceBundle(ResourceBundle mybundle) {
+
+        this.mybundle = mybundle;
+        vornameLabel.setText(mybundle.getString("Vorname") + ":");
+        nachnameLabel.setText(mybundle.getString("Nachname") + ":");
+        userLabel.setText(mybundle.getString("Benutzername") + ":");
+        firmaLabel.setText(mybundle.getString("Firma") + ":");
+        strasseLabel.setText(mybundle.getString("Strasse") + ":");
+        hausnummerLabel.setText(mybundle.getString("Hausnummer") + ":");
+        plzLabel.setText(mybundle.getString("PLZ") + ":");
+        stadtLabel.setText(mybundle.getString("Stadt") + ":");
+        landLabel.setText(mybundle.getString("Land") + ":");
+
+        allgemeinPane.setText(mybundle.getString("Allgemein"));
+        bankverbindungPane.setText(mybundle.getString("Bankverbindung"));
+        adressdetailsPane.setText(mybundle.getString("Adressdetails"));
+
+        bearbeitenButton.setText(mybundle.getString("Bearbeiten"));
+        speichernButton.setText(mybundle.getString("Speichern"));
+        abbrechenButton.setText(mybundle.getString("Abbrechen"));
+        accountLoeschenButton.setText(mybundle.getString("AccountLöschen"));
+
+        if(mybundle.getString("Vorname").equals("First name")) { // Zu umständlich über Properties
+            adressTypComboBox.setItems(FXCollections.observableArrayList("Contact Address", "Delivery Address", "Billing Address", "Return Address"));
+            adressTypComboBox.setValue("Contact Address");
+        }
+    }
     
     /**
      * 
@@ -100,8 +131,9 @@ public class AccountPaneController implements Initializable {
     /**
      * Ein Benutzer kann einen ihm zugeordneten aktivenAccount löschen.
      */
-    public void accountLoeschen() {
-        Alert deleteAccAlert = new Alert(Alert.AlertType.CONFIRMATION, "Sind Sie sicher, dass Sie Ihren Account löschen möchten?");
+    public void accountLoeschen() { // Die vorgebauten Eigenschaften der Alert Dialogs, zB Abbrechen-Button, lassen sich nicht so einfach Bearbeiten! Daher bleiben zwei Wörter der Einfachkeit halber auf deutsch.
+        Alert deleteAccAlert = new Alert(Alert.AlertType.CONFIRMATION, "" + (!mybundle.getString("Vorname").equals("First name") ? "Sind Sie sicher, dass Sie Ihren Account löschen möchten?"
+            : "Do you want to delete your Account?"));
         Optional<ButtonType> result = deleteAccAlert.showAndWait();
         if (result.get() == ButtonType.OK){
             // Benutzer hat OK geklickt

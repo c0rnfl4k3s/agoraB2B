@@ -4,8 +4,7 @@ import Accountsystem.*;
 import Infrastruktur.PropertiesKlasse;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.Locale;
@@ -17,7 +16,7 @@ public class PostfachPaneController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     @FXML
     ListView<Chat> chatListView; // wird noch hinzugefügt
@@ -25,6 +24,12 @@ public class PostfachPaneController implements Initializable {
     ScrollPane chatField2;
     @FXML
     ScrollPane chatField1;
+    @FXML
+    Button sendenButton, neuerChatButton;
+    @FXML
+    Label chatverlaufLabel;
+    @FXML
+    TextField messageTextfield;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,5 +38,13 @@ public class PostfachPaneController implements Initializable {
         chatField2.setDisable(true);
         chatField1.setDisable(true); // damit diese 3 Container nicht anklickbar sind
         chatListView.setDisable(true);
+    }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+        sendenButton.setText(mybundle.getString("Senden"));
+        neuerChatButton.setText(mybundle.getString("neuenChatErstellen"));
+        chatverlaufLabel.setText(mybundle.getString("Chatverlauf"));
+        messageTextfield.setPromptText(mybundle.getString("NachrichtSchreiben"));
     }
 }

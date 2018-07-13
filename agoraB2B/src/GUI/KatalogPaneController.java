@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -22,10 +23,12 @@ public class KatalogPaneController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     @FXML
     private Button software, elektronik, buero, rhb;
+    @FXML
+    private TextField suchenTextfield;
 
     private AccountDTO activeAccountDTO;
     private MainPaneController motherPaneController;
@@ -55,6 +58,14 @@ public class KatalogPaneController implements Initializable {
 //            kaeufersichtAnzeigen();
 //        }
         // TODO: (evtl. nicht an dieser stelle): Buttons der Tabelle hinzufügen für Adminsicht: https://stackoverflow.com/questions/29489366/how-to-add-button-in-javafx-table-view
+    }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+        elektronik.setText(mybundle.getString("Elektronik"));
+        buero.setText(mybundle.getString("Büro"));
+        rhb.setText(mybundle.getString("RHB")); //RMS für Raw Materials and Supplies
+        suchenTextfield.setPromptText(mybundle.getString("Suchen"));
     }
 
     public void adminsichtAnzeigen() {
@@ -103,4 +114,5 @@ public class KatalogPaneController implements Initializable {
     public void setMotherPaneController(MainPaneController mainPaneController) {
         this.motherPaneController = mainPaneController;
     }
+
 }

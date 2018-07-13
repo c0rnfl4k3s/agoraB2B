@@ -5,6 +5,7 @@ import Infrastruktur.PropertiesKlasse;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
@@ -18,7 +19,7 @@ public class EinkaufswagenPaneController implements Initializable {
     private String selectedCountry = p.getProp().getProperty("country","DE");
     private String selectedLanguage = p.getProp().getProperty("lang","de");
     private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
-    private ResourceBundle mybundle = ResourceBundle.getBundle("messageBundle", selectedLoacale);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
 //    private Einkaufswagen ekw; // Wird von der MainPane deklariert
     private AccountDTO activeAccountDTO;
@@ -26,6 +27,8 @@ public class EinkaufswagenPaneController implements Initializable {
     private Button bestellungAufgebenButton;
     @FXML
     private TableView table;
+    @FXML
+    Label headerLabel, sumLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { // TODO Buggy
@@ -35,6 +38,13 @@ public class EinkaufswagenPaneController implements Initializable {
 //        header.setMinHeight(0);
 //        header.setPrefHeight(0);
 //        header.setVisible(false);
+    }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+        bestellungAufgebenButton.setText(mybundle.getString("BestellungAufgeben"));
+        headerLabel.setText(mybundle.getString("Einkaufswagen"));
+        sumLabel.setText(mybundle.getString("Summe") + ": 0,00");
     }
 
     @FXML

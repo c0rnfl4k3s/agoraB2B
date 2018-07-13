@@ -65,7 +65,7 @@ public class LoginWindowController implements Initializable {
         pwLabel.setText(mybundle.getString("Passwort"));
         newAccButton.setText(mybundle.getString("neuenAccountErstellen"));
         loginButton.setText(mybundle.getString("Einloggen"));
-        
+
         Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Sprache wurde auf '" + sprache + "' geändert.");
     }
 
@@ -73,6 +73,7 @@ public class LoginWindowController implements Initializable {
     public void showNewAccountScene() throws IOException {
         loader = new FXMLLoader(getClass().getResource("register_window.fxml"));
         loginPane.getChildren().setAll((Parent)loader.load());
+        ((RegisterWindowController)loader.getController()).setResourceBundle(mybundle);
         loginPane.getScene().getWindow().setHeight(626+40);
         loginPane.getScene().getWindow().setWidth(648+16);
     }
@@ -104,6 +105,7 @@ public class LoginWindowController implements Initializable {
         loader.setLocation(getClass().getResource("mainPane.fxml"));
         Parent mainPane = loader.load(); // Immer erst load aufrufen, bevor man auf den Controller zugreift !!
         ((MainPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
+        ((MainPaneController)loader.getController()).setResourceBundle(mybundle);
         ((MainPaneController)loader.getController()).produktKatalogAnzeigen();
         loginPane.getScene().getWindow().setHeight(390+48);
         loginPane.getScene().getWindow().setWidth(600+16);

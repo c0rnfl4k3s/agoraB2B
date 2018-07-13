@@ -1,19 +1,28 @@
 package GUI;
 
 import Accountsystem.*;
+import Infrastruktur.PropertiesKlasse;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MainPaneController implements Initializable {
+
+    private PropertiesKlasse p = new PropertiesKlasse();
+    private String selectedCountry = p.getProp().getProperty("country","DE");
+    private String selectedLanguage = p.getProp().getProperty("lang","de");
+    private Locale selectedLoacale = new Locale(selectedLanguage, selectedCountry);
+    private ResourceBundle mybundle = ResourceBundle.getBundle("StringBundle", selectedLoacale);
 
     @FXML
     BorderPane rootPane;
@@ -22,6 +31,8 @@ public class MainPaneController implements Initializable {
 
     FXMLLoader loader; // Um auf die Controller-Objekte der eingelesenen Panes zugreifen zu können
     private AccountDTO activeAccountDTO;
+    @FXML
+    private Button einkaufswagenButton, produktKatalogButton, postfachButton;
 
 
     @Override
@@ -44,13 +55,13 @@ public class MainPaneController implements Initializable {
     @FXML
     public void produktKatalogAnzeigen() throws IOException {
 //        Parent content = FXMLLoader.load(getClass().getResource("katalogPane.fxml"));
-        loader = new FXMLLoader();
-        System.out.println(activeAccountDTO);
-        loader.setController(new KatalogPaneController(/*activeAccountDTO*/)); // Muss manuell gesetzt werden, um activeAccountDTO zu übergeben. Controller ist in der FXML Datei bewusst nicht gesetzt.
-        loader.setLocation(getClass().getResource("katalogPane.fxml"));
+        loader = new FXMLLoader(getClass().getResource("katalogPane.fxml"));
+//        loader.setController(new KatalogPaneController(/*activeAccountDTO*/)); // Muss manuell gesetzt werden, um activeAccountDTO zu übergeben. Controller ist in der FXML Datei bewusst nicht gesetzt.
+//        loader.setLocation(getClass().getResource("katalogPane.fxml"));
         Parent content = loader.load();
 //        ((KatalogPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
         ((KatalogPaneController)loader.getController()).setMotherPaneController(this);
+        ((KatalogPaneController)loader.getController()).setResourceBundle(mybundle);
         contentPane.getChildren().setAll(content);
         Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Produktkatalog aufgerufen.");
     }
@@ -64,6 +75,7 @@ public class MainPaneController implements Initializable {
 //        Parent content = FXMLLoader.load(getClass().getResource("postfachPane.fxml"));
         loader = new FXMLLoader(getClass().getResource("postfachPane.fxml"));
         Parent content = loader.load();
+        ((PostfachPaneController)loader.getController()).setResourceBundle(mybundle);
         contentPane.getChildren().setAll(content);
         Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Postfach aufgerufen.");
     }
@@ -82,6 +94,7 @@ public class MainPaneController implements Initializable {
 //        System.out.println(loader.toString());
         ((AccountPaneController)loader.getController()).setActiveAccountDTO(activeAccountDTO); // AccountDTO-Objekt an Controller übergeben (geht vlt auch einfacher, von innerhalb des Controllers getten?)
         ((AccountPaneController)loader.getController()).setMotherPaneController(this);
+        ((AccountPaneController)loader.getController()).setResourceBundle(mybundle);
         contentPane.getChildren().setAll(content);
         Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Accountpage aufgerufen");
     }
@@ -91,7 +104,7 @@ public class MainPaneController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void einkaufswagenAnzeigen() throws IOException { // TODO BUGGY
+    public void einkaufswagenAnzeigen() throws IOException {
 //        Parent content = FXMLLoader.load(getClass().getResource("einkaufswagenPane.fxml"));
         loader = new FXMLLoader(getClass().getResource("einkaufswagenPane.fxml"));
 
@@ -100,6 +113,7 @@ public class MainPaneController implements Initializable {
 
         EinkaufswagenPaneController ekwController = loader.getController(); // ekwController wird zugreifbar
         ekwController.setActiveAccountDTO(activeAccountDTO); // ekwController kriegt Zugriff auf den Einkaufswagen im Accountsystem
+        ekwController.setResourceBundle(mybundle);
         Infrastruktur.LoggerKlasse.getInstance().getLog().fine("Einkaufswagen aufgerufen.");
     }
 
@@ -127,4 +141,12 @@ public class MainPaneController implements Initializable {
     public void setActiveAccountDTO(AccountDTO activeAccountDTO) {
         this.activeAccountDTO = activeAccountDTO;
     }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+        einkaufswagenButton.setText(mybundle.getString("Einkaufswagen"));
+        postfachButton.setText(mybundle.getString("Postfach"));
+        produktKatalogButton.setText(mybundle.getString("Produktkatalog"));
+    }
+
 }

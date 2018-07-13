@@ -31,4 +31,8 @@ public class KatalogContentVerkaeufersichtController implements Initializable {
     public void setMotherPaneController(KatalogPaneController katalogPaneController) {
         this.motherPaneController = katalogPaneController;
     }
+
+    public void setResourceBundle(ResourceBundle mybundle) {
+        this.mybundle = mybundle;
+    }
 }
